@@ -17,7 +17,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://liuyanbo20061020-cloud.github.io
+url: https://yerbery-cloud.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -112,5 +112,5 @@ theme: yerbery
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/liuyanbo20061020-cloud/liuyanbo20061020-cloud.github.io.git
+  repo: https://github.com/yerbery-cloud/yerbery-cloud.github.io.git
   branch: gh-pages
