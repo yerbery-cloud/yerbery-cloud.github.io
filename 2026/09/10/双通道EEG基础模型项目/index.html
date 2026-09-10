@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-realm="study">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f0">
+  <meta name="description" content="Yerbery 的个人学习与生活记录">
+  <title>双通道 EEG 基础模型与认知负荷实时解码 · Yerbery</title>
+  
+<link rel="stylesheet" href="/css/yerbery.css">
+
+  
+<link rel="stylesheet" href="/css/study.css">
+
+  
+  
+  
+
+  
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body class="realm-study">
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="返回首页">
+        <span class="brand-mark">Y</span>
+        <span class="brand-name">Yerbery</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
+
+      <nav class="site-nav" id="site-nav">
+        
+          <a href="/">首页</a>
+        
+          <a href="/categories/study/">学习</a>
+        
+          <a href="/categories/reading/">阅读</a>
+        
+          <a href="/categories/movies/">电影</a>
+        
+          <a href="/categories/travel/">旅行</a>
+        
+          <a href="/archives/">归档</a>
+        
+      </nav>
+
+      <div class="nav-actions">
+        
+          <a class="nav-icon" href="https://github.com/liuyanbo20061020-cloud" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+        
+        <button class="theme-toggle" id="theme-toggle" aria-label="切换深浅色">◐</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    
+
+
+  <article class="study-article">
+    <header class="study-article-header shell">
+      <div class="study-doc-id">YERBERY STUDY NOTE · 20260910</div>
+      <h1>双通道 EEG 基础模型与认知负荷实时解码</h1>
+      
+      <div class="study-article-meta">
+        <span>Published 2026.09.10</span>
+        <span>2 min read</span>
+        
+          <span class="study-tagline">#EEG #BCI #Foundation Model #自监督学习 #PyTorch #项目 </span>
+        
+      </div>
+    </header>
+
+    <div class="study-article-layout shell">
+      <aside class="study-toc" id="study-toc">
+        <div class="study-toc-title">CONTENTS</div>
+        <nav id="study-toc-list"></nav>
+      </aside>
+      <div class="article-content study-content" id="article-content">
+        <h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>这是我于 2026 年 8 月至 9 月在浙江大学完成的 EEG 研究项目。</p>
+<p>项目围绕 Fp1&#x2F;Fp2 双通道脑电，完成了：</p>
+<ul>
+<li>基于 Masked Reconstruction 的自监督 EEG 预训练</li>
+<li>20 → 60 被试的预训练 Scaling 实验</li>
+<li>Linear Probe、LoRA、Full Fine-tuning 对比</li>
+<li>EEGNet 与 CBraMod 基线比较</li>
+<li>LoongBrain + LSL 真机实时 EEG 推理</li>
+<li>个体 Calibration 与实时认知负荷二分类 Demo</li>
+</ul>
+<h2 id="核心结果"><a href="#核心结果" class="headerlink" title="核心结果"></a>核心结果</h2><ul>
+<li>20 → 60 被试后，同测试集重建 MSE 下降 <strong>6.62%</strong></li>
+<li>Frozen Linear Probe F1 相对提升 <strong>18.57%</strong></li>
+<li>LoRA 仅使用约 <strong>4.6%</strong> 的 Full Fine-tuning 可训练参数</li>
+<li>Same-session calibrated Demo Accuracy 达到 <strong>80.56%</strong></li>
+<li>平均实时推理延迟约 <strong>5.21 ms</strong></li>
+</ul>
+<blockquote>
+<p>80.56% 为同一 session 内经过个体校准后的 Demo 结果，并非跨 session 泛化准确率。</p>
+</blockquote>
+<h2 id="项目代码"><a href="#项目代码" class="headerlink" title="项目代码"></a>项目代码</h2><p>👉 <a target="_blank" rel="noopener" href="https://github.com/yerbery-cloud/eeg-foundation-model">GitHub Repository：eeg-foundation-model</a></p>
+
+      </div>
+    </div>
+
+    
+      <div class="article-tags study-tags shell narrow">
+        <a href="/tags/EEG/"># EEG</a><a href="/tags/BCI/"># BCI</a><a href="/tags/Foundation-Model/"># Foundation Model</a><a href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"># 自监督学习</a><a href="/tags/PyTorch/"># PyTorch</a><a href="/tags/%E9%A1%B9%E7%9B%AE/"># 项目</a>
+      </div>
+    
+  </article>
+
+
+
+<nav class="post-nav realm-post-nav shell narrow">
+  <div>
+    
+  </div>
+  <div class="post-nav-next">
+    <span>下一篇</span><a href="/reading/the-moon-and-sixpence/">月亮与六便士｜在脚下的六便士与天上的月亮之间</a>
+  </div>
+</nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Yerbery</strong>
+      <span> · Stay curious. Stay gentle.</span>
+    </div>
+    <div>© <span id="current-year"></span> Yerbery</div>
+  </footer>
+
+  
+<script src="/js/yerbery.js"></script>
+
+</body>
+</html>
