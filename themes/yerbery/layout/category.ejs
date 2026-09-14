@@ -1,9 +1,9 @@
 <%
   var metas = {
-    '学习': { en: 'ACADEMIC NOTEBOOK', desc: '把复杂问题拆开、证明、实现，再把结论写成可以复用的知识。' },
-    '阅读': { en: 'READING ROOM', desc: '让不同类型的书拥有不同的气味，但都保留安静、克制和个人判断。' },
-    '电影': { en: 'CINEMA LOG', desc: '不做资料库，只留下银幕熄灭之后，仍值得回想的画面与情绪。' },
-    '旅行': { en: 'TRAVEL JOURNAL', desc: '把城市、路线、天气与照片收进明亮的旅行档案。' }
+    '学习': { en: 'ACADEMIC NOTEBOOK', desc: '致用为先' },
+    '阅读': { en: 'READING ROOM', desc: '聊以自慰' },
+    '电影': { en: 'CINEMA LOG', desc: '银幕熄灭之后' },
+    '旅行': { en: 'TRAVEL JOURNAL', desc: '足下生魂' }
   };
   var meta = metas[page.category] || { en: 'CATEGORY', desc: '这一类文章的集合。' };
   var posts = page.posts && page.posts.toArray ? page.posts.toArray() : [];
