@@ -1,9 +1,9 @@
 <%
   var metas = {
-    '学习': { en: 'LEARNING', desc: '把复杂问题拆开，直到它真正变成自己的知识。' },
-    '阅读': { en: 'READING', desc: '记录书页之外留下来的那一点回声。' },
-    '电影': { en: 'MOVIES', desc: '不做标准影评，只记下银幕熄灭之后仍然留下的东西。' },
-    '旅行': { en: 'TRAVEL', desc: '城市、车窗、街道和偶然遇见的人，组成另一种学习。' }
+    '学习': { en: 'LEARNING', desc: '致用为先' },
+    '阅读': { en: 'READING', desc: '聊以自慰' },
+    '电影': { en: 'MOVIES', desc: '银幕熄灭之后' },
+    '旅行': { en: 'TRAVEL', desc: '足下生魂' }
   };
   var meta = metas[page.category] || { en: 'CATEGORY', desc: '这一类文章的集合。' };
   var posts = page.posts && page.posts.toArray ? page.posts.toArray() : [];
