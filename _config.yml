@@ -73,6 +73,7 @@ default_category: uncategorized
 
 category_map:
   学习: study
+  科研: research
   阅读: reading
   电影: movies
   旅行: travel
