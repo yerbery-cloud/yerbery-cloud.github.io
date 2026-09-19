@@ -1,5 +1,5 @@
 ---
-title: EdgeBench 与 Benchbasics：第一次接触 Benchmark 设计
+title: Benchbasics, EdgeBench和BrainPilot Bench：第一次接触 Benchmark 设计
 subtitle: 从 Capability、Tasks、Environment、Evaluation 与 Protocol 理解一个 Benchmark 的基本结构
 date: 2026-09-19 16:00:00
 
@@ -126,5 +126,78 @@ Edge Bench拥有非常好的设计模式：
 → Agent 多轮执行
 → 自动评测
 → 统一协议下比较不同 Agent
+```
+
+## BrainPilot Bench 基本知识
+
+### 1.BrainPilot
+BrainPilot 是一个脑科学科研 Agent 系统：它有 PI agent、专业 agent、知识库、skill library、审计 agent 等，用来辅助完成脑科学研究。
+
+BrainPilotBench 则是它们专门做出来的评测框架 + task suite：
+
+>不管用 BrainPilot、Codex、Claude Code，只要Agent能完成规定的科研任务并提交规定 artifacts，都可以拿来评测。
+
+### 2.Artifact-first evaluation
+
+即**只评价最后产出的科研成果**
+
+针对所有过程性实验文件进行评估
+
+以*SNN AutoResearch*为例,需要评估的文件有（仅举例）：
+
+- model.pth
+- config.json
+- result.json
+- train.py
+- report.md
+
+### 3.四个典型任务拆分（总体）
+
+| Task                   | Agent 任务                                  | 主要评分                                |
+| ---------------------- | ---------------------------------------------- | ----------------------------------- |
+| `neuro-rsc-place-cell` | Calcium imaging / 行为数据分析 / place-cell decoding | deterministic checks + human rubric |
+| `tops-fmri`            | 用 fMRI 功能连接训练 pain signature，并在隐藏 cohort 上外部验证 | Pearson r + AUC                     |
+| `bciciv-2a`            | EEG motor imagery 四分类                          | held-out accuracy + Cohen's κ       |
+| `sleep-edf`            | EEG 睡眠五分类                                      | Cohen's κ + per-class recall        |
+
+**看了两个tasks：**
+
+#### 3.1 RSC-Place-Cell
+真实的小鼠 retrosplenial cortex Ca²⁺ imaging + VR belt 行为数据，完成 5 个子分析，最后产生：
+```text
+benchmark_summary.json
+report.md
+figures/*.png
+```
+
+两类Evaluator评估：**deterministic evaluator**（评估类似ratio,error等处理数据）和**human rubric**（评估Analysis,Quality等较主观因素）
+
+#### 3.2 TOPs-fmri
+- Hidden Evaluation：Study 3 public training data to get a signature, use 2 hidden studies to test it and gain a score
+
+很好的防止过拟合数据与数据泄露
+
+#### 3.3 值得学习的Task设计范式：
+e.g: RSC:
+
+```text
+task.yaml
+prompt/
+    turns.yaml
+
+data.lock #用的数据版本，固定
+
+env/
+    setup.sh  #怎样建立可复现环境
+
+checks/
+    check.sh
+
+solution/
+    solution.sh #保证有Oracle（最坏的正解）和sol
+
+rubric.yaml #需人工评价的科研质量，例如：visualization quality, trial bin analysis...
+#rubric 最后评估方式：Dimension + Criterion(Description) + Score Anchor + Evidence
+```
 
 
