@@ -1,7 +1,7 @@
 ---
 title: Benchbasics, EdgeBench和BrainPilot Bench：第一次接触 Benchmark 设计
-subtitle: 从 Capability、Tasks、Environment、Evaluation 与 Protocol 理解一个 Benchmark 的基本结构
-date: 2026-09-19 16:00:00
+subtitle: 从 Capability、Tasks、Environment、Evaluation 与 Protocol 理解一个 Bench 的基本结构
+date: 2026-09-19 21:30:00
 
 categories:
   - 科研
@@ -15,11 +15,11 @@ research_type: benchmark
 project: SNN-AutoResearch
 status: ongoing
 
-question: 一个好的 Benchmark 应该如何把“能力”转化为可验证、可复现的任务与评价协议？
+question: 如何设计好的Bench范式？
 
 ---
 
-#  第一周留痕：一些对于Benchmark的和针对SNN任务设计的学习
+#  第一周留痕：一些对于Bench的和针对SNN Autoresearch任务设计的参考Bench学习
 
 ## 关于Edge_Bench:
 
@@ -144,13 +144,13 @@ BrainPilotBench 则是它们专门做出来的评测框架 + task suite：
 针对所有过程性实验文件进行评估
 
 以*SNN AutoResearch*为例,需要评估的文件有（仅举例）：
-
+```text
 - model.pth
 - config.json
 - result.json
 - train.py
 - report.md
-
+```
 ### 3.四个典型任务拆分（总体）
 
 | Task                   | Agent 任务                                  | 主要评分                                |
