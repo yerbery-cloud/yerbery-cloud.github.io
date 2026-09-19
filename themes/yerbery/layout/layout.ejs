@@ -10,7 +10,7 @@
 
   function resolveRealm() {
     var names = categoryNames();
-    var map = { '学习': 'study', '阅读': 'reading', '电影': 'movies', '旅行': 'travel' };
+    var map = { '学习': 'study', '科研': 'research', '阅读': 'reading', '电影': 'movies', '旅行': 'travel' };
     for (var i = 0; i < names.length; i++) {
       if (map[names[i]]) return map[names[i]];
     }
@@ -30,11 +30,12 @@
   <title><%= page.title ? page.title + ' · ' : '' %><%= config.title %></title>
   <%- css('css/yerbery.css') %>
   <% if (realm === 'study') { %><%- css('css/study.css') %><% } %>
+  <% if (realm === 'research') { %><%- css('css/research.css') %><% } %>
   <% if (realm === 'reading') { %><%- css('css/reading.css') %><% } %>
   <% if (realm === 'movies') { %><%- css('css/movies.css') %><% } %>
   <% if (realm === 'travel') { %><%- css('css/travel.css') %><% } %>
 
-  <% if (realm === 'study') { %>
+  <% if (realm === 'study' || realm === 'research') { %>
     <script>
       window.MathJax = {
         tex: {

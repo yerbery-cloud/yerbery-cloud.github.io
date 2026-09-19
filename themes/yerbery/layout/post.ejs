@@ -4,12 +4,17 @@
     page.categories.each(function(cat) { catNames.push(cat.name); });
   }
   var realm = catNames.indexOf('学习') !== -1 ? 'study' :
+              catNames.indexOf('科研') !== -1 ? 'research' :
               catNames.indexOf('阅读') !== -1 ? 'reading' :
               catNames.indexOf('电影') !== -1 ? 'movies' :
               catNames.indexOf('旅行') !== -1 ? 'travel' : 'default';
   var readingTypes = theme.reading_types || {
     mystery: '悬疑', fiction: '文学·小说', essay: '文学·散文&随笔', travelogue: '游阅', other: '其他'
   };
+  var researchTypes = theme.research_types || {
+    paper: '论文精读', experiment: '实验记录', benchmark: 'Benchmark', idea: '想法与设计', weekly: '周报 / 进展'
+  };
+  var researchType = page.research_type && researchTypes[page.research_type] ? page.research_type : 'idea';
   var readingType = page.reading_type && readingTypes[page.reading_type] ? page.reading_type : 'other';
   var route = Array.isArray(page.route) ? page.route : [];
   var readMinutes = page.content ? Math.max(1, Math.ceil(String(page.content).replace(/<[^>]*>/g, '').length / 500)) : 1;
@@ -44,6 +49,56 @@
 
     <% if (page.tags && page.tags.length) { %>
       <div class="article-tags study-tags shell narrow">
+        <% page.tags.each(function(tag) { %><a href="<%= url_for(tag.path) %>"># <%= tag.name %></a><% }) %>
+      </div>
+    <% } %>
+  </article>
+
+<% } else if (realm === 'research') { %>
+  <article class="research-article">
+    <header class="research-article-hero">
+      <div class="shell research-article-head">
+        <div class="research-signal"><span></span> YERBERY / RESEARCH LOG / <%= researchTypes[researchType].toUpperCase() %></div>
+        <h1><%= page.title %></h1>
+        <% if (page.subtitle) { %><p class="research-deck"><%= page.subtitle %></p><% } %>
+
+        <% if (page.question) { %>
+          <div class="research-question">
+            <span>RESEARCH QUESTION</span>
+            <p><%= page.question %></p>
+          </div>
+        <% } %>
+
+        <div class="research-meta-grid">
+          <div><b>DATE</b><span><%= date(page.date, 'YYYY.MM.DD') %></span></div>
+          <div><b>TYPE</b><span><%= researchTypes[researchType] %></span></div>
+          <div><b>STATUS</b><span><%= page.status || 'ongoing' %></span></div>
+          <% if (page.project) { %><div><b>PROJECT</b><span><%= page.project %></span></div><% } %>
+          <% if (page.venue) { %><div><b>VENUE / SOURCE</b><span><%= page.venue %></span></div><% } %>
+          <div><b>READ</b><span><%= readMinutes %> min</span></div>
+        </div>
+
+        <% if (page.paper_url || page.code_url) { %>
+          <div class="research-resource-links">
+            <% if (page.paper_url) { %><a href="<%= page.paper_url %>" target="_blank" rel="noopener">PAPER ↗</a><% } %>
+            <% if (page.code_url) { %><a href="<%= page.code_url %>" target="_blank" rel="noopener">CODE ↗</a><% } %>
+          </div>
+        <% } %>
+      </div>
+    </header>
+
+    <div class="research-article-layout shell">
+      <aside class="research-toc" id="research-toc">
+        <div class="research-toc-title">CONTENTS</div>
+        <nav id="research-toc-list"></nav>
+      </aside>
+      <div class="article-content research-content" id="article-content">
+        <%- page.content %>
+      </div>
+    </div>
+
+    <% if (page.tags && page.tags.length) { %>
+      <div class="article-tags research-tags shell narrow">
         <% page.tags.each(function(tag) { %><a href="<%= url_for(tag.path) %>"># <%= tag.name %></a><% }) %>
       </div>
     <% } %>

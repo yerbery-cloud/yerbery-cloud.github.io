@@ -1,6 +1,7 @@
 <%
   var metas = {
     '学习': { en: 'ACADEMIC NOTEBOOK', desc: '致用为先' },
+    '科研': { en: 'RESEARCH LAB', desc: '从问题出发，用证据推进。' },
     '阅读': { en: 'READING ROOM', desc: '聊以自慰' },
     '电影': { en: 'CINEMA LOG', desc: '银幕熄灭之后' },
     '旅行': { en: 'TRAVEL JOURNAL', desc: '足下生魂' }
@@ -14,6 +15,9 @@
   }
   var readingTypes = theme.reading_types || {
     mystery: '悬疑', fiction: '文学·小说', essay: '文学·散文&随笔', travelogue: '游阅', other: '其他'
+  };
+  var researchTypes = theme.research_types || {
+    paper: '论文精读', experiment: '实验记录', benchmark: 'Benchmark', idea: '想法与设计', weekly: '周报 / 进展'
   };
 %>
 
@@ -61,6 +65,75 @@
         </div>
       </article>
     <% }) %>
+  </section>
+
+<% } else if (page.category === '科研') { %>
+  <section class="research-category-hero">
+    <div class="shell research-hero-grid">
+      <div class="research-hero-copy">
+        <div class="research-signal"><span></span> YERBERY / <%= meta.en %></div>
+        <h1>科研</h1>
+        <p><%= meta.desc %></p>
+        <div class="research-stat-row">
+          <span><strong><%= posts.length %></strong> LOGS</span>
+          <span>PAPER · BENCHMARK · EXPERIMENT · IDEA</span>
+        </div>
+      </div>
+      <div class="research-console" aria-hidden="true">
+        <div class="research-console-top"><span>LAB / 05</span><i></i><b>ACTIVE</b></div>
+        <div class="research-flow">
+          <span>QUESTION</span><b>→</b><span>HYPOTHESIS</span><b>→</b><span>EVIDENCE</span><b>→</b><span>ITERATE</span>
+        </div>
+        <div class="research-console-grid">
+          <span class="research-console-line line-a"></span>
+          <span class="research-console-line line-b"></span>
+          <span class="research-console-dot dot-1"></span>
+          <span class="research-console-dot dot-2"></span>
+          <span class="research-console-dot dot-3"></span>
+        </div>
+        <small>NOT RESULT-DRIVEN. EVIDENCE-DRIVEN.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="research-library shell">
+    <div class="research-toolbar">
+      <div class="research-filter" id="research-filter" aria-label="科研记录类型筛选">
+        <button class="is-active" data-research-filter="all">全部</button>
+        <% Object.keys(researchTypes).forEach(function(key) { %>
+          <button data-research-filter="<%= key %>"><%= researchTypes[key] %></button>
+        <% }) %>
+      </div>
+      <span class="research-order">ORDERED BY DATE ↓</span>
+    </div>
+
+    <div class="research-grid" id="research-grid">
+      <% posts.forEach(function(post, i) {
+        var type = post.research_type && researchTypes[post.research_type] ? post.research_type : 'idea';
+        var status = post.status || 'ongoing';
+        var statusLabel = status === 'done' ? 'DONE' : status === 'paused' ? 'PAUSED' : 'ONGOING';
+      %>
+        <article class="research-card" data-research-type="<%= type %>">
+          <div class="research-card-index"><%= String(i + 1).padStart(2, '0') %></div>
+          <div class="research-card-main">
+            <div class="research-card-meta">
+              <span class="research-type"><%= researchTypes[type] %></span>
+              <time><%= date(post.date, 'YYYY.MM.DD') %></time>
+              <% if (post.project) { %><span><%= post.project %></span><% } %>
+              <span class="research-status status-<%= status %>"><i></i><%= statusLabel %></span>
+            </div>
+            <h2><a href="<%= url_for(post.path) %>"><%= post.title %></a></h2>
+            <p><%= postSummary(post, 185) %></p>
+            <div class="research-card-foot">
+              <div class="research-card-tags">
+                <% if (post.tags && post.tags.length) { post.tags.each(function(tag) { %><em>#<%= tag.name %></em><% }) } %>
+              </div>
+              <a class="research-open" href="<%= url_for(post.path) %>">OPEN LOG ↗</a>
+            </div>
+          </div>
+        </article>
+      <% }) %>
+    </div>
   </section>
 
 <% } else if (page.category === '阅读') { %>

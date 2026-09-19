@@ -56,10 +56,31 @@
     });
   }
 
-  // Study notes: create a lightweight table of contents from h2/h3 headings.
+
+  // Research lab: filter logs by note type without leaving the page.
+  var researchFilter = document.getElementById('research-filter');
+  var researchCards = Array.prototype.slice.call(document.querySelectorAll('[data-research-type]'));
+  if (researchFilter && researchCards.length) {
+    researchFilter.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-research-filter]');
+      if (!button) return;
+      var type = button.getAttribute('data-research-filter');
+
+      researchFilter.querySelectorAll('[data-research-filter]').forEach(function (item) {
+        item.classList.toggle('is-active', item === button);
+      });
+
+      researchCards.forEach(function (card) {
+        var show = type === 'all' || card.getAttribute('data-research-type') === type;
+        card.classList.toggle('is-hidden', !show);
+      });
+    });
+  }
+
+  // Study / research notes: create a lightweight table of contents from h2/h3 headings.
   var article = document.getElementById('article-content');
-  var toc = document.getElementById('study-toc');
-  var tocList = document.getElementById('study-toc-list');
+  var toc = document.getElementById('study-toc') || document.getElementById('research-toc');
+  var tocList = document.getElementById('study-toc-list') || document.getElementById('research-toc-list');
   if (article && toc && tocList) {
     var headings = Array.prototype.slice.call(article.querySelectorAll('h2, h3'));
     if (!headings.length) {

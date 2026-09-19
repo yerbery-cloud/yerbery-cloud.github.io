@@ -1,11 +1,12 @@
 brand: Yerbery
 kicker: PERSONAL GARDEN
-motto: 一些收藏、思考、见闻和笔记
-intro: Learning · Reading · Movies · Travel
+motto: 把知识、问题、书页、银幕与远方，慢慢收进同一个地方。
+intro: Learning · Research · Reading · Movies · Travel
 
 menu:
   首页: /
   学习: /categories/study/
+  科研: /categories/research/
   阅读: /categories/reading/
   电影: /categories/movies/
   旅行: /categories/travel/
@@ -20,5 +21,14 @@ reading_types:
   travelogue: 游阅
   other: 其他
 
-github: https://github.com/liuyanbo20061020-cloud
+# 科研板块的记录类型。
+# 文章 front matter 使用 research_type: paper / experiment / benchmark / idea / weekly
+research_types:
+  paper: 论文精读
+  experiment: 实验记录
+  benchmark: Benchmark
+  idea: 想法与设计
+  weekly: 周报 / 进展
+
+github: https://github.com/yerbery-cloud
 footer_text: Stay curious. Stay gentle.
