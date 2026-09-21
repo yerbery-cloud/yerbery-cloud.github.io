@@ -1,0 +1,360 @@
+/* ===== Yerbery · Yunxiao atmospheric resident v15 =====
+   Quiet by default. No wink, no dialogue, no dragging.
+   Goal: make the cover feel like a dreamy celestial grotto where Yunxiao lives.
+*/
+
+[data-resident] {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+body.realm-home .hero {
+  overflow: visible;
+}
+body.realm-home .hero-art {
+  position: relative;
+  overflow: visible;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+body.realm-home .hero-card {
+  inset: 86px 56px 38px 78px;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(247,249,244,.34), rgba(255,255,255,.2));
+  border-color: rgba(255,255,255,.45);
+  box-shadow:
+    0 24px 56px rgba(46, 67, 56, .08),
+    inset 0 1px 0 rgba(255,255,255,.72);
+}
+html[data-theme="dark"] body.realm-home .hero-card {
+  background: linear-gradient(180deg, rgba(22,31,26,.46), rgba(20,28,24,.32));
+  border-color: rgba(222,238,227,.10);
+}
+
+.hero-art-celestial::before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: -12px;
+  width: 74%;
+  height: 112%;
+  border-radius: 46px;
+  background:
+    radial-gradient(circle at 66% 28%, rgba(243,248,244,.88), rgba(232,241,234,.55) 26%, transparent 60%),
+    radial-gradient(circle at 74% 70%, rgba(220,229,221,.42), transparent 54%),
+    linear-gradient(180deg, rgba(229,237,230,.26), rgba(248,249,245,.02));
+  filter: blur(1px);
+  pointer-events: none;
+}
+.hero-art-celestial::after {
+  content: "";
+  position: absolute;
+  right: 58px;
+  top: 14px;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(222,235,225,.38), rgba(222,235,225,.06) 56%, transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.hero-mist,
+.hero-spark {
+  position: absolute;
+  pointer-events: none;
+}
+.hero-mist {
+  border-radius: 999px;
+  filter: blur(12px);
+  opacity: .58;
+}
+.hero-mist-a {
+  right: 0;
+  top: 48px;
+  width: 230px;
+  height: 74px;
+  background: linear-gradient(90deg, rgba(240,243,243,0), rgba(241,248,244,.7), rgba(233,237,235,0));
+  animation: mistDrift 12s ease-in-out infinite;
+}
+.hero-mist-b {
+  right: 54px;
+  bottom: 62px;
+  width: 250px;
+  height: 86px;
+  background: linear-gradient(90deg, rgba(229,237,234,0), rgba(246,249,247,.82), rgba(229,237,234,0));
+  animation: mistDrift 15s ease-in-out infinite -4s;
+}
+.hero-mist-c {
+  right: 140px;
+  bottom: 18px;
+  width: 176px;
+  height: 56px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(234,241,237,.72), rgba(255,255,255,0));
+  animation: mistDrift 13s ease-in-out infinite -8s;
+}
+.hero-spark {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.96) 0 35%, rgba(213,232,222,.7) 36% 68%, transparent 72%);
+  box-shadow: 0 0 12px rgba(255,255,255,.5);
+  opacity: .72;
+  animation: sparkPulse 6.4s ease-in-out infinite;
+}
+.spark-a { right: 280px; top: 54px; animation-delay: -1s; }
+.spark-b { right: 108px; top: 128px; width: 4px; height: 4px; animation-delay: -3.6s; }
+.spark-c { right: 230px; top: 212px; width: 5px; height: 5px; animation-delay: -2.2s; }
+.spark-d { right: 62px; top: 260px; width: 4px; height: 4px; animation-delay: -4.7s; }
+
+.hero-resident-yunxiao {
+  position: absolute;
+  z-index: 5;
+  right: -36px;
+  bottom: 4px;
+  width: clamp(236px, 19vw, 290px);
+  transform-style: preserve-3d;
+}
+
+.resident-depth-stage {
+  position: relative;
+  width: 100%;
+  min-height: 430px;
+  transform-style: preserve-3d;
+  transform-origin: 58% 76%;
+  animation: yunxiaoFloat 7.8s cubic-bezier(.42,.05,.54,.96) infinite;
+}
+
+.grotto-arch {
+  position: absolute;
+  z-index: 0;
+  left: 10%;
+  top: 10%;
+  width: 77%;
+  height: 60%;
+  border-radius: 52% 52% 18% 18% / 40% 40% 14% 14%;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(244,248,245,.96), rgba(230,239,233,.7) 46%, rgba(216,226,219,.34) 68%, transparent 82%),
+    linear-gradient(180deg, rgba(203,220,211,.18), rgba(245,248,245,.04));
+  border: 1px solid rgba(101, 135, 114, .14);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.75),
+    0 26px 44px rgba(92, 123, 105, .08);
+  transform: translateZ(-52px);
+}
+.grotto-shimmer {
+  position: absolute;
+  z-index: 1;
+  left: 21%;
+  top: 18%;
+  width: 56%;
+  height: 38%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.62), rgba(233,241,236,.18) 56%, transparent 72%);
+  filter: blur(10px);
+  transform: translateZ(-40px);
+  animation: haloBreathe 7.4s ease-in-out infinite;
+}
+.resident-halo {
+  position: absolute;
+  z-index: 2;
+  left: 17%;
+  top: 17%;
+  width: 63%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(215,227,217,.38) 0 28%, rgba(201,219,208,.15) 55%, transparent 72%);
+  filter: blur(9px);
+  transform: translateZ(-28px);
+  animation: haloBreathe 8.3s ease-in-out infinite -1s;
+}
+
+.hanging-vine {
+  position: absolute;
+  z-index: 3;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(129,160,139,.62), rgba(129,160,139,0));
+  transform: translateZ(18px);
+  transform-origin: top center;
+  animation: vineSway 8.8s ease-in-out infinite;
+}
+.hanging-vine::before,
+.hanging-vine::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 9px;
+  background: linear-gradient(135deg, rgba(189,213,197,.92), rgba(132,167,143,.72));
+  border-radius: 100% 8% 100% 8%;
+  box-shadow: 0 2px 5px rgba(74,98,82,.08);
+}
+.vine-a {
+  left: 63%;
+  top: 0;
+  height: 96px;
+  animation-delay: -1.4s;
+}
+.vine-a::before { left: -8px; top: 30px; transform: rotate(-18deg); }
+.vine-a::after { left: -4px; top: 58px; transform: rotate(22deg); }
+.vine-b {
+  left: 76%;
+  top: 8px;
+  height: 78px;
+  animation-delay: -4.2s;
+}
+.vine-b::before { left: -9px; top: 24px; transform: rotate(-20deg); }
+.vine-b::after { left: -5px; top: 46px; transform: rotate(14deg); }
+
+.resident-figure-yunxiao {
+  position: relative;
+  z-index: 6;
+  transform: translateZ(42px);
+  filter:
+    drop-shadow(0 26px 34px rgba(43, 60, 52, .13))
+    drop-shadow(0 7px 14px rgba(83, 70, 108, .08));
+}
+.resident-figure-yunxiao picture,
+.resident-figure-yunxiao img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.resident-figure-yunxiao img {
+  -webkit-user-drag: none;
+}
+
+.cloud-seat {
+  position: absolute;
+  z-index: 4;
+  left: 23%;
+  right: 16%;
+  bottom: 8%;
+  height: 24px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98), rgba(224,233,228,.92));
+  border: 1px solid rgba(126, 155, 136, .1);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    0 11px 24px rgba(82, 107, 93, .08);
+  transform: translateZ(10px);
+}
+.cloud-seat::before,
+.cloud-seat::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(229,238,232,.85));
+}
+.cloud-seat::before {
+  left: -10%;
+  bottom: -3px;
+  width: 38%;
+  height: 19px;
+}
+.cloud-seat::after {
+  right: -6%;
+  bottom: -2px;
+  width: 32%;
+  height: 17px;
+}
+.cloud-seat-shadow {
+  position: absolute;
+  z-index: 1;
+  left: 27%;
+  right: 21%;
+  bottom: 2.4%;
+  height: 18px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(73,92,79,.18), rgba(73,92,79,0));
+  filter: blur(6px);
+  transform: translateZ(-10px);
+}
+
+.petal {
+  position: absolute;
+  z-index: 7;
+  width: 10px;
+  height: 6px;
+  border-radius: 90% 10% 80% 20%;
+  background: linear-gradient(135deg, rgba(218,199,231,.86), rgba(249,246,252,.72));
+  box-shadow: 0 3px 8px rgba(117,94,139,.08);
+  opacity: .78;
+  animation: petalDrift 8.6s ease-in-out infinite;
+}
+.petal-a { left: 5%; top: 40%; rotate: 22deg; animation-delay: -1.4s; }
+.petal-b { right: 6%; top: 28%; width: 8px; height: 5px; rotate: -28deg; animation-delay: -3.6s; }
+.petal-c { right: 18%; bottom: 28%; width: 7px; height: 4px; rotate: 12deg; animation-delay: -5.1s; }
+.petal-d { left: 26%; top: 22%; width: 7px; height: 4px; rotate: -18deg; animation-delay: -6.4s; }
+
+@keyframes yunxiaoFloat {
+  0%, 100% { transform: translateY(0) translateX(0) rotateZ(-.25deg); }
+  50% { transform: translateY(-8px) translateX(-2px) rotateZ(.28deg); }
+}
+@keyframes haloBreathe {
+  0%, 100% { opacity: .68; transform: translateZ(-34px) scale(.94); }
+  50% { opacity: .92; transform: translateZ(-34px) scale(1.02); }
+}
+@keyframes vineSway {
+  0%,100% { transform: translateZ(18px) rotate(0deg); }
+  50% { transform: translateZ(18px) rotate(2.8deg); }
+}
+@keyframes petalDrift {
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); opacity: .28; }
+  50% { transform: translate3d(5px,-14px,12px) rotate(16deg); opacity: .82; }
+}
+@keyframes mistDrift {
+  0%,100% { transform: translateX(0) translateY(0); opacity: .36; }
+  50% { transform: translateX(-10px) translateY(-4px); opacity: .78; }
+}
+@keyframes sparkPulse {
+  0%,100% { transform: scale(.8); opacity: .35; }
+  50% { transform: scale(1.2); opacity: .95; }
+}
+
+/* remove earlier interactive eye rig */
+.yunxiao-blink-rig,
+.blink-lid,
+.blink-lash,
+.companion-stage,
+.recent-resident-youqin,
+.youqin-body-layer,
+.youqin-front-layer,
+.companion-dialog,
+.companion-name-tag,
+.companion-helper,
+.companions-toggle,
+.embedded-companion,
+.frame-blink,
+.blink-eye { display: none !important; }
+.recent-notes-shell .post-grid { padding-right: 0 !important; }
+
+@media (max-width: 1320px) {
+  body.realm-home .hero-card { inset: 84px 68px 34px 60px; }
+  .hero-resident-yunxiao { right: -18px; width: clamp(220px, 18.5vw, 270px); }
+}
+@media (max-width: 1040px) {
+  body.realm-home .hero-card { inset: 78px 88px 32px 28px; }
+  .hero-resident-yunxiao { right: 4px; width: 222px; }
+  .hero-mist-a { right: 12px; width: 188px; }
+}
+@media (max-width: 900px) {
+  body.realm-home .hero-card { inset: 70px 56px 26px 34px; }
+  .hero-resident-yunxiao { right: 8px; width: 192px; bottom: -2px; }
+  .grotto-arch { height: 54%; }
+  .hero-mist, .hanging-vine { display: none; }
+}
+@media (max-width: 640px) {
+  .hero-resident-yunxiao { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .resident-depth-stage,
+  .resident-halo,
+  .grotto-shimmer,
+  .petal,
+  .hero-mist,
+  .hero-spark,
+  .hanging-vine { animation: none !important; }
+}

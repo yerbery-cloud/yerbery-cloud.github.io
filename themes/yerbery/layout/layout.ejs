@@ -29,6 +29,7 @@
   <meta name="description" content="<%= page.description || page.excerpt || config.description || '' %>">
   <title><%= page.title ? page.title + ' · ' : '' %><%= config.title %></title>
   <%- css('css/yerbery.css') %>
+  <%- css('css/companions.css') %>
   <% if (realm === 'study') { %><%- css('css/study.css') %><% } %>
   <% if (realm === 'research') { %><%- css('css/research.css') %><% } %>
   <% if (realm === 'reading') { %><%- css('css/reading.css') %><% } %>
@@ -82,7 +83,7 @@
     <%- body %>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer<%= realm === 'home' ? ' site-footer-home' : '' %>">
     <div>
       <strong><%= theme.brand || config.title %></strong>
       <span> · <%= theme.footer_text || 'Personal Garden' %></span>
@@ -91,5 +92,6 @@
   </footer>
 
   <%- js('js/yerbery.js') %>
+  <%- js('js/companions.js') %>
 </body>
 </html>

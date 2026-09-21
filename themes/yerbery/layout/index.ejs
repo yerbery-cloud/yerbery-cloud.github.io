@@ -20,15 +20,44 @@
     </div>
   </div>
 
-  <div class="hero-art" aria-hidden="true">
+  <div class="hero-art hero-art-celestial" aria-hidden="true">
     <div class="orb orb-a"></div>
     <div class="orb orb-b"></div>
+    <span class="hero-mist hero-mist-a"></span>
+    <span class="hero-mist hero-mist-b"></span>
+    <span class="hero-mist hero-mist-c"></span>
+    <span class="hero-spark spark-a"></span>
+    <span class="hero-spark spark-b"></span>
+    <span class="hero-spark spark-c"></span>
+    <span class="hero-spark spark-d"></span>
     <div class="hero-card">
       <span>LEARN</span>
       <span>RESEARCH</span>
       <span>READ</span>
       <span>WATCH</span>
       <span>WANDER</span>
+    </div>
+
+    <div class="hero-resident hero-resident-yunxiao" data-resident="yunxiao" aria-label="云霄仙子 3D 立绘">
+      <div class="resident-depth-stage">
+        <span class="grotto-arch" aria-hidden="true"></span>
+        <span class="grotto-shimmer" aria-hidden="true"></span>
+        <span class="resident-halo" aria-hidden="true"></span>
+        <span class="hanging-vine vine-a" aria-hidden="true"></span>
+        <span class="hanging-vine vine-b" aria-hidden="true"></span>
+        <span class="cloud-seat" aria-hidden="true"></span>
+        <span class="cloud-seat-shadow" aria-hidden="true"></span>
+        <span class="petal petal-a" aria-hidden="true"></span>
+        <span class="petal petal-b" aria-hidden="true"></span>
+        <span class="petal petal-c" aria-hidden="true"></span>
+        <span class="petal petal-d" aria-hidden="true"></span>
+        <div class="resident-figure resident-figure-yunxiao" id="yunxiao-resident" role="img" aria-label="云霄仙子">
+          <picture>
+            <source srcset="<%- url_for('/images/characters/yunxiao-3d.webp') %>" type="image/webp">
+            <img class="yunxiao-body" src="<%- url_for('/images/characters/yunxiao-3d.png') %>" alt="云霄仙子" decoding="async" draggable="false">
+          </picture>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -119,9 +148,10 @@
       <span class="arrow">↗</span>
     </a>
   </div>
+
 </section>
 
-<section class="section shell">
+<section class="section shell recent-notes-shell">
   <div class="section-head compact">
     <div>
       <div class="eyebrow">RECENT NOTES</div>
@@ -150,4 +180,5 @@
       </article>
     <% }) %>
   </div>
+
 </section>

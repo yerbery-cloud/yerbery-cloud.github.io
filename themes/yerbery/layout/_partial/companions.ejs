@@ -1,0 +1,24 @@
+<div class="companion-stage" id="companion-stage" aria-label="博客互动人物">
+  <button class="companion-toggle" id="companion-toggle" type="button" aria-pressed="false" title="隐藏人物">
+    <span class="companion-toggle-dot" aria-hidden="true"></span>
+    <span class="companion-toggle-text">人物</span>
+  </button>
+
+  <aside class="companion companion-yunxiao" id="companion-yunxiao" data-companion="yunxiao" aria-label="云霄仙子互动人物">
+    <div class="companion-dialog" id="dialog-yunxiao" role="status" aria-live="polite"></div>
+    <div class="companion-frame" aria-hidden="true">
+      <img src="<%- url_for('/images/characters/yunxiao.png') %>" alt="" draggable="false">
+      <span class="companion-glow"></span>
+      <span class="companion-name">云霄</span>
+    </div>
+  </aside>
+
+  <aside class="companion companion-youqin" id="companion-youqin" data-companion="youqin" aria-label="有琴玄雅互动人物">
+    <div class="companion-dialog" id="dialog-youqin" role="status" aria-live="polite"></div>
+    <div class="companion-frame" aria-hidden="true">
+      <img src="<%- url_for('/images/characters/youqin-xuanya.png') %>" alt="" draggable="false">
+      <span class="companion-glow"></span>
+      <span class="companion-name">有琴玄雅</span>
+    </div>
+  </aside>
+</div>
