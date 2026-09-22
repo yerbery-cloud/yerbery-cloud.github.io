@@ -1,15 +1,15 @@
 :root {
-  --bg: #f5f6f0;
-  --surface: rgba(255,255,255,.72);
-  --surface-solid: #fcfcf8;
-  --text: #1e2822;
-  --muted: #6d766f;
-  --line: rgba(31, 52, 40, .12);
-  --green: #2e6a4f;
-  --green-2: #5f8f74;
-  --sage: #dce8dd;
-  --warm: #ece4d6;
-  --shadow: 0 18px 60px rgba(28, 53, 38, .08);
+  --bg: #f8f4fb;
+  --surface: rgba(255,255,255,.76);
+  --surface-solid: #fdfbff;
+  --text: #222127;
+  --muted: #6f6a77;
+  --line: rgba(79, 62, 112, .12);
+  --green: #7b6a93;
+  --green-2: #9a8ab4;
+  --sage: #eadff7;
+  --warm: #f5e6ee;
+  --shadow: 0 18px 60px rgba(74, 53, 103, .10);
   --radius-xl: 30px;
   --radius-lg: 22px;
   --radius-md: 16px;
@@ -19,17 +19,17 @@
 }
 
 html[data-theme="dark"] {
-  --bg: #111713;
-  --surface: rgba(27, 36, 30, .72);
-  --surface-solid: #18211b;
-  --text: #edf2ed;
-  --muted: #a3aea6;
-  --line: rgba(231, 241, 233, .11);
-  --green: #84b998;
-  --green-2: #6ba783;
-  --sage: #26382c;
-  --warm: #352f25;
-  --shadow: 0 18px 70px rgba(0,0,0,.22);
+  --bg: #14111b;
+  --surface: rgba(32, 27, 43, .76);
+  --surface-solid: #1d1828;
+  --text: #f4f1f7;
+  --muted: #b2a9c4;
+  --line: rgba(235, 227, 249, .12);
+  --green: #b79cff;
+  --green-2: #cbb5ff;
+  --sage: #2a2338;
+  --warm: #34273a;
+  --shadow: 0 18px 70px rgba(0,0,0,.28);
 }
 
 * { box-sizing: border-box; }
@@ -38,8 +38,9 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 8% 0%, rgba(96, 145, 117, .14), transparent 28rem),
-    radial-gradient(circle at 92% 12%, rgba(188, 165, 117, .10), transparent 24rem),
+    radial-gradient(circle at 8% 0%, rgba(160, 132, 200, .14), transparent 28rem),
+    radial-gradient(circle at 92% 12%, rgba(231, 198, 214, .11), transparent 24rem),
+    radial-gradient(circle at 76% 38%, rgba(209, 191, 242, .12), transparent 26rem),
     var(--bg);
   font-family: var(--sans);
   line-height: 1.75;
@@ -47,7 +48,7 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
-::selection { background: rgba(84, 137, 103, .24); }
+::selection { background: rgba(154, 126, 219, .24); }
 
 .reading-progress { position: fixed; z-index: 1000; left: 0; top: 0; height: 2px; width: 0; background: var(--green); }
 .shell { width: min(calc(100% - 40px), var(--shell)); margin: 0 auto; }

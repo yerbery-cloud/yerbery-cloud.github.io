@@ -1,6 +1,6 @@
-/* ===== Yerbery · Yunxiao atmospheric resident v15 =====
-   Quiet by default. No wink, no dialogue, no dragging.
-   Goal: make the cover feel like a dreamy celestial grotto where Yunxiao lives.
+/* ===== Yerbery · Yunxiao fairy-grotto v16 =====
+   Purple-toned dreamy cover with quiet floating Yunxiao.
+   Added peach-blossom / floral scenery, softer palette, no dialogue.
 */
 
 [data-resident] {
@@ -20,139 +20,394 @@ body.realm-home .hero-art {
   transform-style: preserve-3d;
 }
 body.realm-home .hero-card {
-  inset: 86px 56px 38px 78px;
+  inset: 78px 142px 34px 40px;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(247,249,244,.34), rgba(255,255,255,.2));
-  border-color: rgba(255,255,255,.45);
+  background: linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.24));
+  border-color: rgba(255,255,255,.5);
   box-shadow:
-    0 24px 56px rgba(46, 67, 56, .08),
-    inset 0 1px 0 rgba(255,255,255,.72);
+    0 24px 56px rgba(81, 60, 116, .10),
+    inset 0 1px 0 rgba(255,255,255,.84);
+}
+body.realm-home .hero-card span {
+  color: #1f2024;
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
+body.realm-home .hero-card span:nth-child(2),
+body.realm-home .hero-card span:nth-child(4) {
+  color: #5e536f;
+}
+html[data-theme="dark"] body.realm-home .hero-card span {
+  color: #ece9f4;
+}
+html[data-theme="dark"] body.realm-home .hero-card span:nth-child(2),
+html[data-theme="dark"] body.realm-home .hero-card span:nth-child(4) {
+  color: #c9bbe0;
 }
 html[data-theme="dark"] body.realm-home .hero-card {
-  background: linear-gradient(180deg, rgba(22,31,26,.46), rgba(20,28,24,.32));
-  border-color: rgba(222,238,227,.10);
+  background: linear-gradient(180deg, rgba(32,25,41,.48), rgba(26,22,35,.34));
+  border-color: rgba(240,232,255,.12);
+}
+
+.hero-art-celestial {
+  isolation: isolate;
 }
 
 .hero-art-celestial::before {
   content: "";
   position: absolute;
-  right: -10px;
-  top: -12px;
-  width: 74%;
-  height: 112%;
-  border-radius: 46px;
+  right: -8px;
+  top: -16px;
+  width: 78%;
+  height: 116%;
+  border-radius: 52px;
   background:
-    radial-gradient(circle at 66% 28%, rgba(243,248,244,.88), rgba(232,241,234,.55) 26%, transparent 60%),
-    radial-gradient(circle at 74% 70%, rgba(220,229,221,.42), transparent 54%),
-    linear-gradient(180deg, rgba(229,237,230,.26), rgba(248,249,245,.02));
+    radial-gradient(circle at 66% 24%, rgba(250,247,254,.94), rgba(240,231,249,.66) 30%, transparent 64%),
+    radial-gradient(circle at 76% 72%, rgba(230,221,244,.42), transparent 54%),
+    linear-gradient(180deg, rgba(237,228,246,.28), rgba(250,249,253,.02));
   filter: blur(1px);
   pointer-events: none;
 }
 .hero-art-celestial::after {
   content: "";
   position: absolute;
-  right: 58px;
-  top: 14px;
-  width: 310px;
-  height: 310px;
+  right: 56px;
+  top: 12px;
+  width: 328px;
+  height: 328px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(222,235,225,.38), rgba(222,235,225,.06) 56%, transparent 70%);
-  filter: blur(6px);
+  background: radial-gradient(circle, rgba(226,212,243,.42), rgba(233,224,245,.1) 56%, transparent 72%);
+  filter: blur(7px);
   pointer-events: none;
 }
+.hero-gauze {
+  position: absolute;
+  z-index: 2;
+  right: 138px;
+  top: 24px;
+  width: 168px;
+  height: 260px;
+  border-radius: 46px;
+  background: linear-gradient(180deg, rgba(255,255,255,.48), rgba(255,255,255,.06));
+  border: 1px solid rgba(255,255,255,.35);
+  filter: blur(.3px);
+  opacity: .48;
+  transform: rotate(6deg) skewY(-3deg);
+  box-shadow: inset 0 0 24px rgba(255,255,255,.22);
+}
+.hero-gauze::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(170,150,198,.42), rgba(170,150,198,0));
+}
+.hero-branch-shadow {
+  position: absolute;
+  z-index: 0;
+  right: 120px;
+  top: 22px;
+  width: 220px;
+  height: 140px;
+  opacity: .12;
+  filter: blur(2px);
+  transform: rotate(-8deg);
+  background:
+    radial-gradient(circle at 16% 26%, rgba(88,70,58,.88) 0 8px, transparent 9px),
+    radial-gradient(circle at 44% 38%, rgba(88,70,58,.82) 0 7px, transparent 8px),
+    radial-gradient(circle at 71% 18%, rgba(88,70,58,.82) 0 6px, transparent 7px),
+    linear-gradient(90deg, transparent 0 12%, rgba(88,70,58,.65) 12% 14%, transparent 14% 100%);
+}
+.hero-stone {
+  position: absolute;
+  z-index: 1;
+  right: 82px;
+  bottom: 10px;
+  width: 268px;
+  height: 84px;
+  border-radius: 40px 40px 56px 56px;
+  background: linear-gradient(180deg, rgba(249,247,251,.76), rgba(228,221,235,.52));
+  border: 1px solid rgba(157,141,181,.14);
+  box-shadow: 0 18px 28px rgba(79,67,98,.08), inset 0 1px 0 rgba(255,255,255,.66);
+  transform: translateZ(-6px);
+}
+.hero-stone::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(164,149,189,.24), transparent);
+}
+
+.hero-stone-mist {
+  position: absolute;
+  z-index: 2;
+  right: 86px;
+  bottom: 18px;
+  width: 236px;
+  height: 64px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.60), rgba(255,255,255,.16) 52%, transparent 76%);
+  filter: blur(10px);
+  opacity: .72;
+}
+.hero-moonbeam {
+  position: absolute;
+  z-index: 1;
+  right: 92px;
+  top: -16px;
+  width: 180px;
+  height: 320px;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+  clip-path: polygon(38% 0, 64% 0, 100% 100%, 0 100%);
+  filter: blur(6px);
+  opacity: .34;
+  transform: rotate(6deg);
+}
+.hero-rim-vine {
+  position: absolute;
+  z-index: 3;
+  width: 84px;
+  height: 180px;
+  border-right: 2px solid rgba(120,148,114,.18);
+  border-radius: 0 42px 56px 0;
+  opacity: .78;
+}
+.hero-rim-vine::before,
+.hero-rim-vine::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 26px;
+  background: linear-gradient(180deg, rgba(164,197,159,.42), rgba(128,174,133,.14));
+  border-radius: 100% 0 100% 0;
+}
+.hero-rim-vine::before { right: -7px; top: 28px; transform: rotate(24deg); }
+.hero-rim-vine::after { right: -10px; top: 74px; transform: rotate(-12deg); }
+.hero-rim-vine.vine-rim-a { right: 18px; top: 44px; }
+.hero-rim-vine.vine-rim-b { right: 286px; top: 64px; height: 132px; opacity: .58; }
+.hero-rim-vine.vine-rim-b::before { top: 20px; }
+.hero-rim-vine.vine-rim-b::after { top: 54px; }
 
 .hero-mist,
-.hero-spark {
+.hero-spark,
+.blossom-branch,
+.flower-cluster,
+.leaf-silhouette,
+.falling-blossom {
   position: absolute;
   pointer-events: none;
 }
 .hero-mist {
   border-radius: 999px;
   filter: blur(12px);
-  opacity: .58;
+  opacity: .6;
 }
 .hero-mist-a {
-  right: 0;
-  top: 48px;
-  width: 230px;
-  height: 74px;
-  background: linear-gradient(90deg, rgba(240,243,243,0), rgba(241,248,244,.7), rgba(233,237,235,0));
+  right: -8px;
+  top: 40px;
+  width: 250px;
+  height: 76px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(248,241,253,.78), rgba(255,255,255,0));
   animation: mistDrift 12s ease-in-out infinite;
 }
 .hero-mist-b {
-  right: 54px;
+  right: 26px;
   bottom: 62px;
-  width: 250px;
-  height: 86px;
-  background: linear-gradient(90deg, rgba(229,237,234,0), rgba(246,249,247,.82), rgba(229,237,234,0));
+  width: 278px;
+  height: 88px;
+  background: linear-gradient(90deg, rgba(241,233,250,0), rgba(252,247,255,.88), rgba(241,233,250,0));
   animation: mistDrift 15s ease-in-out infinite -4s;
 }
 .hero-mist-c {
-  right: 140px;
+  right: 154px;
   bottom: 18px;
-  width: 176px;
-  height: 56px;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(234,241,237,.72), rgba(255,255,255,0));
+  width: 192px;
+  height: 58px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(244,236,251,.78), rgba(255,255,255,0));
   animation: mistDrift 13s ease-in-out infinite -8s;
 }
 .hero-spark {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,.96) 0 35%, rgba(213,232,222,.7) 36% 68%, transparent 72%);
-  box-shadow: 0 0 12px rgba(255,255,255,.5);
-  opacity: .72;
+  background: radial-gradient(circle, rgba(255,255,255,.96) 0 34%, rgba(215,193,243,.8) 35% 68%, transparent 72%);
+  box-shadow: 0 0 12px rgba(255,255,255,.55);
+  opacity: .78;
   animation: sparkPulse 6.4s ease-in-out infinite;
 }
-.spark-a { right: 280px; top: 54px; animation-delay: -1s; }
-.spark-b { right: 108px; top: 128px; width: 4px; height: 4px; animation-delay: -3.6s; }
-.spark-c { right: 230px; top: 212px; width: 5px; height: 5px; animation-delay: -2.2s; }
-.spark-d { right: 62px; top: 260px; width: 4px; height: 4px; animation-delay: -4.7s; }
+.spark-a { right: 292px; top: 52px; animation-delay: -1s; }
+.spark-b { right: 110px; top: 126px; width: 4px; height: 4px; animation-delay: -3.6s; }
+.spark-c { right: 246px; top: 210px; width: 5px; height: 5px; animation-delay: -2.2s; }
+.spark-d { right: 76px; top: 268px; width: 4px; height: 4px; animation-delay: -4.7s; }
+
+.dream-dust {
+  position: absolute;
+  z-index: 4;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 0 10px rgba(255,255,255,.46);
+  opacity: .6;
+  animation: dustFloat 10s ease-in-out infinite;
+}
+.dust-a { right: 204px; top: 96px; animation-delay: -1.1s; }
+.dust-b { right: 168px; top: 152px; width: 2px; height: 2px; animation-delay: -4.7s; }
+.dust-c { right: 116px; top: 232px; width: 4px; height: 4px; animation-delay: -6.2s; }
+.dust-d { right: 264px; top: 252px; width: 2px; height: 2px; animation-delay: -8.3s; }
+
+.blossom-branch {
+  z-index: 6;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(135,108,89,.85), rgba(135,108,89,.2));
+  transform-origin: left center;
+  box-shadow: 0 1px 3px rgba(88, 63, 50, .14);
+}
+.blossom-branch::before,
+.blossom-branch::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.92), rgba(255,255,255,.18) 26%, transparent 27%),
+    radial-gradient(circle, rgba(246,215,233,.95) 0 44%, rgba(234,192,221,.96) 45% 73%, transparent 74%);
+  box-shadow: 0 0 0 3px rgba(248,231,240,.18);
+}
+.branch-a {
+  right: 48px;
+  top: 38px;
+  width: 148px;
+  transform: rotate(-14deg) translateZ(24px);
+}
+.branch-a::before { right: 12px; top: -6px; }
+.branch-a::after { right: 42px; top: -10px; }
+.branch-b {
+  right: 114px;
+  top: 88px;
+  width: 112px;
+  transform: rotate(24deg) translateZ(20px);
+}
+.branch-b::before { left: 14px; top: -7px; }
+.branch-b::after { left: 48px; top: -9px; }
+.branch-c {
+  right: 222px;
+  top: 52px;
+  width: 104px;
+  transform: rotate(-32deg) translateZ(18px);
+}
+.branch-c::before { right: 16px; top: -7px; }
+.branch-c::after { right: 42px; top: -9px; }
+.branch-d {
+  right: 18px;
+  top: 124px;
+  width: 92px;
+  transform: rotate(58deg) translateZ(16px);
+}
+.branch-d::before { left: 12px; top: -8px; }
+.branch-d::after { left: 42px; top: -8px; }
+
+.flower-cluster {
+  z-index: 6;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,226,170,.72) 0 10%, transparent 11%),
+    radial-gradient(circle at 22% 42%, rgba(250,231,241,.98) 0 36%, transparent 37%),
+    radial-gradient(circle at 78% 42%, rgba(250,231,241,.98) 0 36%, transparent 37%),
+    radial-gradient(circle at 36% 78%, rgba(250,231,241,.98) 0 36%, transparent 37%),
+    radial-gradient(circle at 64% 78%, rgba(250,231,241,.98) 0 36%, transparent 37%);
+  filter: drop-shadow(0 2px 5px rgba(145,105,136,.16));
+  animation: blossomTwinkle 5.4s ease-in-out infinite;
+}
+.flower-a { right: 188px; top: 64px; }
+.flower-b { right: 142px; top: 110px; transform: scale(.9); animation-delay: -2.1s; }
+.flower-c { right: 68px; top: 58px; transform: scale(1.05); animation-delay: -3.4s; }
+.flower-d { right: 236px; top: 90px; transform: scale(.92); animation-delay: -1.8s; }
+.flower-e { right: 34px; top: 134px; transform: scale(.86); animation-delay: -4.6s; }
+
+.leaf-silhouette {
+  z-index: 2;
+  border-radius: 60% 0 60% 0;
+  background: linear-gradient(135deg, rgba(175, 204, 173, .26), rgba(126, 170, 136, .10));
+  filter: blur(1px);
+  transform: rotate(-10deg);
+}
+.leaf-a {
+  right: 6px;
+  bottom: 86px;
+  width: 94px;
+  height: 154px;
+  opacity: .32;
+}
+.leaf-b {
+  right: 300px;
+  top: 118px;
+  width: 54px;
+  height: 94px;
+  opacity: .22;
+  transform: rotate(18deg);
+}
+.leaf-c {
+  right: 270px;
+  bottom: 24px;
+  width: 84px;
+  height: 122px;
+  opacity: .18;
+  transform: rotate(-24deg);
+}
 
 .hero-resident-yunxiao {
   position: absolute;
   z-index: 5;
-  right: -36px;
-  bottom: 4px;
-  width: clamp(236px, 19vw, 290px);
+  right: -132px;
+  bottom: -13px;
+  width: clamp(194px, 14.9vw, 226px);
   transform-style: preserve-3d;
 }
 
 .resident-depth-stage {
   position: relative;
   width: 100%;
-  min-height: 430px;
+  min-height: 438px;
   transform-style: preserve-3d;
-  transform-origin: 58% 76%;
-  animation: yunxiaoFloat 7.8s cubic-bezier(.42,.05,.54,.96) infinite;
+  transform-origin: 64% 78%;
+  animation: yunxiaoFloat 8.6s cubic-bezier(.42,.05,.54,.96) infinite;
 }
 
 .grotto-arch {
   position: absolute;
   z-index: 0;
-  left: 10%;
-  top: 10%;
-  width: 77%;
-  height: 60%;
-  border-radius: 52% 52% 18% 18% / 40% 40% 14% 14%;
+  left: 2%;
+  top: 6%;
+  width: 86%;
+  height: 68%;
+  border-radius: 54% 54% 18% 18% / 42% 42% 14% 14%;
   background:
-    radial-gradient(circle at 50% 38%, rgba(244,248,245,.96), rgba(230,239,233,.7) 46%, rgba(216,226,219,.34) 68%, transparent 82%),
-    linear-gradient(180deg, rgba(203,220,211,.18), rgba(245,248,245,.04));
-  border: 1px solid rgba(101, 135, 114, .14);
+    radial-gradient(circle at 50% 38%, rgba(248,246,252,.96), rgba(242,236,248,.76) 44%, rgba(223,214,236,.40) 69%, transparent 84%),
+    linear-gradient(180deg, rgba(208,194,229,.18), rgba(248,246,251,.04));
+  border: 1px solid rgba(140, 120, 176, .12);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.75),
-    0 26px 44px rgba(92, 123, 105, .08);
+    inset 0 1px 0 rgba(255,255,255,.84),
+    0 30px 50px rgba(110, 90, 145, .09);
   transform: translateZ(-52px);
 }
 .grotto-shimmer {
   position: absolute;
   z-index: 1;
-  left: 21%;
-  top: 18%;
-  width: 56%;
-  height: 38%;
+  left: 17%;
+  top: 16%;
+  width: 61%;
+  height: 40%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,.62), rgba(233,241,236,.18) 56%, transparent 72%);
+  background: radial-gradient(circle, rgba(255,255,255,.7), rgba(240,232,249,.2) 56%, transparent 72%);
   filter: blur(10px);
   transform: translateZ(-40px);
   animation: haloBreathe 7.4s ease-in-out infinite;
@@ -160,12 +415,12 @@ html[data-theme="dark"] body.realm-home .hero-card {
 .resident-halo {
   position: absolute;
   z-index: 2;
-  left: 17%;
-  top: 17%;
-  width: 63%;
+  left: 16%;
+  top: 16%;
+  width: 65%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(215,227,217,.38) 0 28%, rgba(201,219,208,.15) 55%, transparent 72%);
+  background: radial-gradient(circle, rgba(228,214,245,.42) 0 28%, rgba(210,190,236,.18) 55%, transparent 72%);
   filter: blur(9px);
   transform: translateZ(-28px);
   animation: haloBreathe 8.3s ease-in-out infinite -1s;
@@ -175,7 +430,7 @@ html[data-theme="dark"] body.realm-home .hero-card {
   position: absolute;
   z-index: 3;
   width: 2px;
-  background: linear-gradient(180deg, rgba(129,160,139,.62), rgba(129,160,139,0));
+  background: linear-gradient(180deg, rgba(153,133,186,.62), rgba(153,133,186,0));
   transform: translateZ(18px);
   transform-origin: top center;
   animation: vineSway 8.8s ease-in-out infinite;
@@ -186,24 +441,14 @@ html[data-theme="dark"] body.realm-home .hero-card {
   position: absolute;
   width: 14px;
   height: 9px;
-  background: linear-gradient(135deg, rgba(189,213,197,.92), rgba(132,167,143,.72));
+  background: linear-gradient(135deg, rgba(212,197,232,.96), rgba(165,147,198,.74));
   border-radius: 100% 8% 100% 8%;
-  box-shadow: 0 2px 5px rgba(74,98,82,.08);
+  box-shadow: 0 2px 5px rgba(98,82,124,.08);
 }
-.vine-a {
-  left: 63%;
-  top: 0;
-  height: 96px;
-  animation-delay: -1.4s;
-}
+.vine-a { left: 66%; top: 4px; height: 96px; animation-delay: -1.4s; }
 .vine-a::before { left: -8px; top: 30px; transform: rotate(-18deg); }
 .vine-a::after { left: -4px; top: 58px; transform: rotate(22deg); }
-.vine-b {
-  left: 76%;
-  top: 8px;
-  height: 78px;
-  animation-delay: -4.2s;
-}
+.vine-b { left: 80%; top: 14px; height: 78px; animation-delay: -4.2s; }
 .vine-b::before { left: -9px; top: 24px; transform: rotate(-20deg); }
 .vine-b::after { left: -5px; top: 46px; transform: rotate(14deg); }
 
@@ -212,8 +457,8 @@ html[data-theme="dark"] body.realm-home .hero-card {
   z-index: 6;
   transform: translateZ(42px);
   filter:
-    drop-shadow(0 26px 34px rgba(43, 60, 52, .13))
-    drop-shadow(0 7px 14px rgba(83, 70, 108, .08));
+    drop-shadow(0 24px 32px rgba(70, 58, 100, .12))
+    drop-shadow(0 6px 13px rgba(105, 83, 142, .09));
 }
 .resident-figure-yunxiao picture,
 .resident-figure-yunxiao img {
@@ -228,17 +473,17 @@ html[data-theme="dark"] body.realm-home .hero-card {
 .cloud-seat {
   position: absolute;
   z-index: 4;
-  left: 23%;
-  right: 16%;
-  bottom: 8%;
+  left: 22%;
+  right: 18%;
+  bottom: 6%;
   height: 24px;
   border-radius: 999px;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.98), rgba(224,233,228,.92));
-  border: 1px solid rgba(126, 155, 136, .1);
+    linear-gradient(180deg, rgba(255,255,255,.99), rgba(236,229,245,.92));
+  border: 1px solid rgba(145, 122, 178, .1);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.98),
-    0 11px 24px rgba(82, 107, 93, .08);
+    0 11px 24px rgba(96, 78, 125, .08);
   transform: translateZ(10px);
 }
 .cloud-seat::before,
@@ -246,29 +491,19 @@ html[data-theme="dark"] body.realm-home .hero-card {
   content: "";
   position: absolute;
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(229,238,232,.85));
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(240,234,247,.86));
 }
-.cloud-seat::before {
-  left: -10%;
-  bottom: -3px;
-  width: 38%;
-  height: 19px;
-}
-.cloud-seat::after {
-  right: -6%;
-  bottom: -2px;
-  width: 32%;
-  height: 17px;
-}
+.cloud-seat::before { left: -10%; bottom: -3px; width: 38%; height: 19px; }
+.cloud-seat::after { right: -6%; bottom: -2px; width: 32%; height: 17px; }
 .cloud-seat-shadow {
   position: absolute;
   z-index: 1;
   left: 27%;
   right: 21%;
-  bottom: 2.4%;
+  bottom: 1.8%;
   height: 18px;
   border-radius: 999px;
-  background: radial-gradient(circle at center, rgba(73,92,79,.18), rgba(73,92,79,0));
+  background: radial-gradient(circle at center, rgba(104, 85, 136, .18), rgba(104, 85, 136, 0));
   filter: blur(6px);
   transform: translateZ(-10px);
 }
@@ -276,45 +511,95 @@ html[data-theme="dark"] body.realm-home .hero-card {
 .petal {
   position: absolute;
   z-index: 7;
-  width: 10px;
-  height: 6px;
+  width: 11px;
+  height: 7px;
   border-radius: 90% 10% 80% 20%;
-  background: linear-gradient(135deg, rgba(218,199,231,.86), rgba(249,246,252,.72));
-  box-shadow: 0 3px 8px rgba(117,94,139,.08);
-  opacity: .78;
+  background: linear-gradient(135deg, rgba(236,210,228,.92), rgba(253,248,252,.78));
+  box-shadow: 0 3px 8px rgba(136, 102, 146, .10);
+  opacity: .8;
   animation: petalDrift 8.6s ease-in-out infinite;
 }
 .petal-a { left: 5%; top: 40%; rotate: 22deg; animation-delay: -1.4s; }
-.petal-b { right: 6%; top: 28%; width: 8px; height: 5px; rotate: -28deg; animation-delay: -3.6s; }
-.petal-c { right: 18%; bottom: 28%; width: 7px; height: 4px; rotate: 12deg; animation-delay: -5.1s; }
-.petal-d { left: 26%; top: 22%; width: 7px; height: 4px; rotate: -18deg; animation-delay: -6.4s; }
+.petal-b { right: 10%; top: 32%; width: 8px; height: 5px; rotate: -28deg; animation-delay: -3.6s; }
+.petal-c { right: 19%; bottom: 30%; width: 7px; height: 4px; rotate: 12deg; animation-delay: -5.1s; }
+.petal-d { left: 26%; top: 22%; width: 8px; height: 5px; rotate: -18deg; animation-delay: -6.4s; }
+
+/* falling peach blossom petals across the cover */
+.hero-art-celestial .falling-blossom {
+  z-index: 8;
+  width: 12px;
+  height: 8px;
+  border-radius: 90% 20% 90% 20%;
+  background: linear-gradient(135deg, rgba(249,230,239,.96), rgba(239,180,210,.82));
+  box-shadow: 0 2px 6px rgba(149, 104, 135, .12);
+  opacity: .86;
+  animation: blossomFall var(--dur, 9s) linear infinite;
+}
+.hero-art-celestial .falling-blossom::after {
+  content: "";
+  position: absolute;
+  inset: 1px 3px auto auto;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.72);
+}
+.hero-art-celestial .falling-blossom.p1 { right: 240px; top: 0; --dur: 13.2s; animation-delay: -1.6s; }
+.hero-art-celestial .falling-blossom.p2 { right: 136px; top: 24px; --dur: 11.8s; animation-delay: -4.4s; width: 10px; height: 7px; }
+.hero-art-celestial .falling-blossom.p3 { right: 54px; top: 44px; --dur: 13.8s; animation-delay: -6.2s; width: 9px; height: 6px; }
+.hero-art-celestial .falling-blossom.p4 { right: 322px; top: 80px; --dur: 14.4s; animation-delay: -2.8s; width: 8px; height: 6px; }
+.hero-art-celestial .falling-blossom.p5 { right: 174px; top: 128px; --dur: 12.9s; animation-delay: -8.8s; }
+.hero-art-celestial .falling-blossom.p6 { right: 92px; top: 192px; --dur: 12.4s; animation-delay: -5.1s; width: 8px; height: 5px; }
+.hero-art-celestial .falling-blossom.p7 { right: 286px; top: 18px; --dur: 15.3s; animation-delay: -9.2s; width: 9px; height: 6px; }
+.hero-art-celestial .falling-blossom.p8 { right: 204px; top: 72px; --dur: 12.5s; animation-delay: -7.7s; width: 11px; height: 7px; }
+.hero-art-celestial .falling-blossom.p9 { right: 126px; top: 156px; --dur: 13.4s; animation-delay: -3.2s; width: 10px; height: 6px; }
+.hero-art-celestial .falling-blossom.p10 { right: 18px; top: 98px; --dur: 13.1s; animation-delay: -6.3s; width: 9px; height: 5px; }
+.hero-art-celestial .falling-blossom.p11 { right: 334px; top: 14px; --dur: 17.4s; animation-delay: -12.2s; width: 6px; height: 4px; opacity: .56; }
+.hero-art-celestial .falling-blossom.p12 { right: 188px; top: 48px; --dur: 16.1s; animation-delay: -10.8s; width: 7px; height: 4px; opacity: .42; }
+.hero-art-celestial .falling-blossom.p13 { right: 78px; top: 164px; --dur: 18.6s; animation-delay: -14.5s; width: 5px; height: 3px; opacity: .34; }
 
 @keyframes yunxiaoFloat {
-  0%, 100% { transform: translateY(0) translateX(0) rotateZ(-.25deg); }
-  50% { transform: translateY(-8px) translateX(-2px) rotateZ(.28deg); }
+  0%, 100% { transform: translateY(0) translateX(0) rotateZ(-.12deg); }
+  50% { transform: translateY(-6px) translateX(-1px) rotateZ(.15deg); }
 }
 @keyframes haloBreathe {
-  0%, 100% { opacity: .68; transform: translateZ(-34px) scale(.94); }
-  50% { opacity: .92; transform: translateZ(-34px) scale(1.02); }
+  0%, 100% { opacity: .74; transform: translateZ(-34px) scale(.94); }
+  50% { opacity: .92; transform: translateZ(-34px) scale(1.03); }
 }
 @keyframes vineSway {
   0%,100% { transform: translateZ(18px) rotate(0deg); }
   50% { transform: translateZ(18px) rotate(2.8deg); }
 }
 @keyframes petalDrift {
-  0%,100% { transform: translate3d(0,0,0) rotate(0deg); opacity: .28; }
-  50% { transform: translate3d(5px,-14px,12px) rotate(16deg); opacity: .82; }
+  0%,100% { transform: translate3d(0,0,0) rotate(0deg); opacity: .32; }
+  50% { transform: translate3d(5px,-14px,12px) rotate(16deg); opacity: .85; }
 }
 @keyframes mistDrift {
-  0%,100% { transform: translateX(0) translateY(0); opacity: .36; }
-  50% { transform: translateX(-10px) translateY(-4px); opacity: .78; }
+  0%,100% { transform: translateX(0) translateY(0); opacity: .38; }
+  50% { transform: translateX(-10px) translateY(-4px); opacity: .82; }
 }
 @keyframes sparkPulse {
   0%,100% { transform: scale(.8); opacity: .35; }
-  50% { transform: scale(1.2); opacity: .95; }
+  50% { transform: scale(1.2); opacity: .96; }
+}
+@keyframes dustFloat {
+  0%,100% { transform: translate3d(0,0,0); opacity: .28; }
+  50% { transform: translate3d(3px,-8px,0); opacity: .74; }
+}
+@keyframes blossomTwinkle {
+  0%,100% { transform: scale(1); opacity: .82; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+@keyframes blossomFall {
+  0% { transform: translate3d(0, -16px, 0) rotate(-6deg) scale(.94); opacity: 0; }
+  10% { opacity: .66; }
+  24% { transform: translate3d(-7px, 56px, 0) rotate(34deg) scale(1); opacity: .82; }
+  48% { transform: translate3d(-26px, 136px, 0) rotate(96deg) scale(.98); opacity: .92; }
+  72% { transform: translate3d(-14px, 216px, 0) rotate(164deg) scale(.94); opacity: .74; }
+  100% { transform: translate3d(-56px, 324px, 0) rotate(228deg) scale(.88); opacity: 0; }
 }
 
-/* remove earlier interactive eye rig */
+/* remove older interactive helpers */
 .yunxiao-blink-rig,
 .blink-lid,
 .blink-lash,
@@ -332,19 +617,19 @@ html[data-theme="dark"] body.realm-home .hero-card {
 .recent-notes-shell .post-grid { padding-right: 0 !important; }
 
 @media (max-width: 1320px) {
-  body.realm-home .hero-card { inset: 84px 68px 34px 60px; }
-  .hero-resident-yunxiao { right: -18px; width: clamp(220px, 18.5vw, 270px); }
+  body.realm-home .hero-card { inset: 80px 130px 32px 28px; }
+  .hero-resident-yunxiao { right: -102px; width: clamp(190px, 14.8vw, 218px); }
 }
 @media (max-width: 1040px) {
-  body.realm-home .hero-card { inset: 78px 88px 32px 28px; }
-  .hero-resident-yunxiao { right: 4px; width: 222px; }
+  body.realm-home .hero-card { inset: 74px 126px 28px 22px; }
+  .hero-resident-yunxiao { right: -62px; width: 180px; }
   .hero-mist-a { right: 12px; width: 188px; }
 }
 @media (max-width: 900px) {
-  body.realm-home .hero-card { inset: 70px 56px 26px 34px; }
-  .hero-resident-yunxiao { right: 8px; width: 192px; bottom: -2px; }
+  body.realm-home .hero-card { inset: 70px 56px 24px 34px; }
+  .hero-resident-yunxiao { right: -10px; width: 168px; bottom: -2px; }
   .grotto-arch { height: 54%; }
-  .hero-mist, .hanging-vine { display: none; }
+  .hero-mist, .hanging-vine, .blossom-branch, .flower-cluster, .leaf-silhouette { display: none; }
 }
 @media (max-width: 640px) {
   .hero-resident-yunxiao { display: none; }
@@ -356,5 +641,8 @@ html[data-theme="dark"] body.realm-home .hero-card {
   .petal,
   .hero-mist,
   .hero-spark,
-  .hanging-vine { animation: none !important; }
+  .hanging-vine,
+  .flower-cluster,
+  .falling-blossom,
+  .dream-dust { animation: none !important; }
 }
