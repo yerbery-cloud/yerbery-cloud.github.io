@@ -28,6 +28,13 @@
   <meta name="theme-color" content="#f5f6f0">
   <meta name="description" content="<%= page.description || page.excerpt || config.description || '' %>">
   <title><%= page.title ? page.title + ' · ' : '' %><%= config.title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
   <%- css('css/yerbery.css') %>
   <%- css('css/companions.css') %>
   <% if (realm === 'study') { %><%- css('css/study.css') %><% } %>
@@ -35,6 +42,16 @@
   <% if (realm === 'reading') { %><%- css('css/reading.css') %><% } %>
   <% if (realm === 'movies') { %><%- css('css/movies.css') %><% } %>
   <% if (realm === 'travel') { %><%- css('css/travel.css') %><% } %>
+  
+  <% if (realm === 'study' || realm === 'research') { %>
+    <%- css('css/academic-typography.css') %>
+  <% } %>
+
+  
+  <% if (realm === 'travel' || realm === 'movies') { %>
+    <%- css('css/editorial-clean.css') %>
+  <% } %>
+
 
   <% if (realm === 'study' || realm === 'research') { %>
     <script>
@@ -51,6 +68,8 @@
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <% } %>
+
+<%- css('css/archive-typography.css') %>
 </head>
 <body class="realm-<%= realm %><%= readingType ? ' reading-type-' + readingType : '' %>">
   <div class="reading-progress" id="reading-progress"></div>
@@ -74,6 +93,13 @@
         <% if (theme.github) { %>
           <a class="nav-icon" href="<%= theme.github %>" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
         <% } %>
+
+        <div class="accent-switcher" id="accent-switcher" aria-label="切换配色">
+          <button class="accent-dot accent-lavender" data-accent="lavender" aria-label="薰衣紫"></button>
+          <button class="accent-dot accent-ivory" data-accent="ivory" aria-label="淡雅白"></button>
+          <button class="accent-dot accent-sage" data-accent="sage" aria-label="浅草绿"></button>
+        </div>
+
         <button class="theme-toggle" id="theme-toggle" aria-label="切换深浅色">◐</button>
       </div>
     </div>

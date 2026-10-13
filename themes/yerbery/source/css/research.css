@@ -516,3 +516,217 @@ body.realm-research .site-footer { border-color: var(--research-line); }
   .research-toc nav { grid-template-columns: 1fr; }
   .research-content { font-size: 16px; }
 }
+/* ===== Research Clean Override ===== */
+
+body.realm-research {
+  --research-bg: #f7faf6;
+  --research-paper: #ffffff;
+  --research-ink: #1f2b22;
+  --research-muted: #69766c;
+  --research-line: rgba(31, 43, 34, .11);
+  --research-accent: #89a97f;
+  --research-accent-strong: #6e8b74;
+
+  color: var(--research-ink);
+  background: linear-gradient(180deg, #fbfcfa 0%, #f5f8f4 100%);
+}
+
+body.realm-research .site-header {
+  background: rgba(255, 255, 255, .86);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--research-line);
+}
+
+/* Hero 区域：去掉“海报感” */
+.research-category-hero {
+  color: var(--research-ink);
+  background: transparent;
+  border-bottom: 1px solid var(--research-line);
+}
+
+.research-hero-grid {
+  min-height: auto;
+  gap: 52px;
+  padding: 72px 0 56px;
+  align-items: center;
+}
+
+.research-category-hero h1 {
+  font: 600 clamp(42px, 6vw, 72px)/1.12 var(--serif);
+  letter-spacing: -.02em;
+  color: var(--research-ink);
+}
+
+.research-category-hero p {
+  max-width: 680px;
+  color: var(--research-muted);
+  font: 400 16px/1.9 var(--sans);
+}
+
+/* 右侧说明板：保留，但做干净 */
+.research-console {
+  min-height: 230px;
+  padding: 28px 30px;
+  border: 1px solid var(--research-line);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.research-console-top {
+  color: var(--research-muted);
+}
+
+.research-console-top i {
+  background: var(--research-line);
+}
+
+/* 弱化装饰网格和流程图感 */
+.research-flow,
+.research-console-grid {
+  opacity: .18;
+}
+
+/* 列表区 */
+.research-library {
+  padding-top: 34px;
+}
+
+.research-toolbar {
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--research-line);
+}
+
+/* 文章条目更简洁 */
+.research-card {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--research-line);
+  background: transparent;
+}
+
+.research-card-index {
+  font-size: 18px;
+  color: color-mix(in srgb, var(--research-accent-strong) 75%, white);
+}
+
+.research-card h2 {
+  margin: 10px 0 12px;
+  font: 600 clamp(28px, 3.6vw, 42px)/1.28 var(--serif);
+  letter-spacing: -.01em;
+}
+
+.research-card h2 a {
+  color: var(--research-ink);
+}
+
+.research-card h2 a:hover {
+  color: var(--research-accent-strong);
+}
+
+.research-card-main > p {
+  max-width: 920px;
+  color: var(--research-muted);
+  font: 400 15px/1.9 var(--sans);
+}
+
+.research-card-tags {
+  color: var(--research-muted);
+  font-size: 10px;
+}
+
+.research-open {
+  color: var(--research-accent-strong);
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+/* 小标签更轻一些 */
+.research-status {
+  border: 1px solid var(--research-line);
+  background: transparent;
+  color: var(--research-muted);
+}
+
+/* 移动端 */
+@media (max-width: 640px) {
+  .research-category-hero h1 {
+    font-size: 40px;
+  }
+
+  .research-console {
+    padding: 22px;
+    min-height: 190px;
+  }
+
+  .research-card h2 {
+    font-size: 26px;
+  }
+}
+
+/* ===== Research Light Mode Fix ===== */
+
+html[data-theme="light"] body.realm-research .research-signal,
+html[data-theme="light"] body.realm-research .research-stat-row {
+  color: #496c50;
+}
+
+html[data-theme="light"] body.realm-research .research-stat-row strong {
+  color: var(--research-ink);
+}
+
+html[data-theme="light"] body.realm-research .research-signal > span {
+  background: #6e9771;
+  box-shadow: 0 0 0 4px rgba(110, 151, 113, .12);
+}
+
+/* Right information panel */
+
+html[data-theme="light"] body.realm-research .research-console {
+  background: #ffffff;
+  border-color: var(--research-line);
+}
+
+html[data-theme="light"] body.realm-research .research-console-top,
+html[data-theme="light"] body.realm-research .research-console small {
+  color: #617267;
+}
+
+html[data-theme="light"] body.realm-research .research-console-top b {
+  color: #496c50;
+}
+
+html[data-theme="light"] body.realm-research .research-console-top i {
+  background: var(--research-line);
+}
+
+/* Research process */
+
+html[data-theme="light"] body.realm-research .research-flow {
+  opacity: 1;
+  color: var(--research-ink);
+  font-size: 11px;
+}
+
+html[data-theme="light"] body.realm-research .research-flow span {
+  color: var(--research-ink);
+  background: #f7faf6;
+  border: 1px solid var(--research-line);
+}
+
+html[data-theme="light"] body.realm-research .research-flow b {
+  color: #608565;
+}
+
+/* Subtle chart */
+
+html[data-theme="light"] body.realm-research .research-console-grid {
+  opacity: .55;
+  border-color: var(--research-line);
+}
+
+html[data-theme="light"] body.realm-research .research-console-line,
+html[data-theme="light"] body.realm-research .research-console-dot {
+  background: #8eaa91;
+  box-shadow: none;
+}

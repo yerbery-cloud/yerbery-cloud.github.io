@@ -1,11 +1,24 @@
 (function () {
   var root = document.documentElement;
   var toggle = document.getElementById('theme-toggle');
+  var accentSwitcher = document.getElementById('accent-switcher');
+  var savedAccent = localStorage.getItem('accent') || 'lavender';
+  document.documentElement.setAttribute('data-accent', savedAccent);
   var menuToggle = document.getElementById('menu-toggle');
   var nav = document.getElementById('site-nav');
   var progress = document.getElementById('reading-progress');
   var year = document.getElementById('current-year');
 
+  if (accentSwitcher) {
+  accentSwitcher.addEventListener('click', function (event) {
+    var button = event.target.closest('[data-accent]');
+    if (!button) return;
+
+    var accent = button.getAttribute('data-accent');
+    document.documentElement.setAttribute('data-accent', accent);
+    localStorage.setItem('accent', accent);
+  });
+}
   if (year) year.textContent = new Date().getFullYear();
 
   var saved = localStorage.getItem('yerbery-theme');

@@ -329,3 +329,104 @@ body.realm-study .realm-post-nav a { font-family: var(--study-serif); }
   .study-abstract { grid-template-columns: 1fr; gap: 7px; }
   .study-article-header { padding-top: 58px; }
 }
+/* ===== Study Clean Override ===== */
+
+body.realm-study {
+  --study-paper: #fafbfd;
+  --study-paper-2: #ffffff;
+  --study-ink: #1f2a36;
+  --study-line: rgba(31, 42, 54, .10);
+  --study-blue: #6f89a8;
+  --study-blue-2: #8ea3bc;
+
+  background: linear-gradient(180deg, #fcfcfe 0%, #f5f7fa 100%);
+  color: var(--study-ink);
+}
+
+body.realm-study .site-header {
+  background: rgba(255, 255, 255, .86);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--study-line);
+}
+
+/* Hero 区域去花哨 */
+.study-category-hero {
+  background: transparent;
+  border-bottom: 1px solid var(--study-line);
+}
+
+.study-category-grid {
+  gap: 52px;
+  align-items: center;
+  padding: 72px 0 56px;
+}
+
+.study-category-hero h1 {
+  font: 600 clamp(42px, 6vw, 72px)/1.12 var(--serif);
+  letter-spacing: -.02em;
+}
+
+.study-category-hero p {
+  max-width: 680px;
+  color: color-mix(in srgb, var(--study-ink) 68%, white);
+  font: 400 16px/1.9 var(--sans);
+}
+
+/* 右侧板块简洁化 */
+.study-hero-board {
+  min-height: 220px;
+  border: 1px solid var(--study-line);
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+/* 去掉太花的数学/装饰元素 */
+.study-bracket,
+.study-formula,
+.study-board-rule {
+  display: none;
+}
+
+.study-hero-board small {
+  color: color-mix(in srgb, var(--study-ink) 60%, white);
+}
+
+/* 列表卡片简洁化 */
+.study-paper-card {
+  border-bottom: 1px solid var(--study-line);
+  background: transparent;
+}
+
+.study-paper-no {
+  color: color-mix(in srgb, var(--study-blue) 75%, white);
+}
+
+.study-paper-body h2 {
+  font: 600 clamp(28px, 3.4vw, 40px)/1.3 var(--serif);
+  letter-spacing: -.01em;
+}
+
+.study-paper-body > p {
+  color: color-mix(in srgb, var(--study-ink) 68%, white);
+  font: 400 15px/1.9 var(--sans);
+}
+
+.study-paper-meta {
+  color: var(--study-blue);
+}
+
+/* 移动端 */
+@media (max-width: 640px) {
+  .study-category-hero h1 {
+    font-size: 40px;
+  }
+
+  .study-hero-board {
+    min-height: 180px;
+  }
+
+  .study-paper-body h2 {
+    font-size: 25px;
+  }
+}

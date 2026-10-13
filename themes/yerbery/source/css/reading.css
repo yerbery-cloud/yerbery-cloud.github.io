@@ -236,3 +236,118 @@ body.realm-reading .realm-post-nav a { font-family: var(--read-serif); }
   .reading-article-header { padding-top: 60px; }
   .reading-content { font-size: 16.5px; line-height: 2; }
 }
+/* ===== Reading Typography V4 ===== */
+
+body.realm-reading {
+  --read-serif: var(--serif);
+}
+
+/* Article Header */
+
+.reading-article-header {
+  padding: 70px 0 36px;
+}
+
+.reading-article-header h1 {
+  max-width: 780px;
+  margin: 22px auto 18px;
+  font: 600 clamp(32px, 5vw, 50px)/1.45 var(--serif);
+  letter-spacing: 0;
+}
+
+.reading-deck {
+  font: 400 16px/1.9 var(--sans);
+}
+
+.reading-flourish {
+  display: none;
+}
+
+/* Body Typography */
+
+.reading-content {
+  width: min(calc(100% - 40px), 700px);
+  margin: 0 auto;
+  padding-top: 52px;
+  font: 400 17px/2 var(--sans);
+  letter-spacing: .01em;
+}
+
+.reading-content p {
+  margin: 1.2em 0;
+}
+
+.reading-content > p:first-of-type::first-letter {
+  float: none;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+}
+
+/* Headings */
+
+.reading-content h2 {
+  margin: 2.5em 0 .9em;
+  font: 600 27px/1.5 var(--serif);
+  text-align: left;
+}
+
+.reading-content h2::before,
+.reading-content h2::after {
+  content: none;
+}
+
+.reading-content h3 {
+  margin: 2em 0 .7em;
+  color: var(--read-ink);
+  font: 600 21px/1.5 var(--serif);
+}
+
+/* Literary Quotes */
+
+.reading-content blockquote {
+  margin: 2.2em 0;
+  padding: 4px 0 4px 24px;
+  border: 0;
+  border-left: 2px solid var(--piece-accent);
+  border-radius: 0;
+  background: transparent;
+  color: var(--read-muted);
+  font: 400 17px/1.95 var(--serif);
+}
+
+.reading-content blockquote::before {
+  content: none;
+}
+
+/* Images */
+
+.reading-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .reading-article-header {
+    padding-top: 48px;
+  }
+
+  .reading-article-header h1 {
+    font-size: 32px;
+  }
+
+  .reading-content {
+    width: calc(100% - 32px);
+    padding-top: 34px;
+    font-size: 16px;
+    line-height: 1.95;
+  }
+
+  .reading-content h2 {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,239 @@
+
+/* ===== Yerbery Editorial Clean V6 ===== */
+
+/* Travel */
+
+body.realm-travel {
+  --travel-ink: var(--text);
+  --travel-muted: var(--muted);
+  --travel-line: var(--line);
+  --travel-teal: var(--green);
+  --travel-sky: var(--green);
+  --travel-coral: var(--green);
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.realm-travel .site-header {
+  background: var(--surface-solid);
+  border-bottom-color: var(--line);
+}
+
+.travel-category-hero::after,
+.travel-article-hero::before,
+.travel-weather-card {
+  display: none;
+}
+
+.travel-category-hero {
+  padding: 68px 0 48px;
+}
+
+.travel-hero-grid {
+  grid-template-columns: 1fr;
+}
+
+.travel-category-hero h1,
+.travel-article-head h1 {
+  font: 600 clamp(40px, 5vw, 60px)/1.3 var(--serif);
+  letter-spacing: 0;
+}
+
+.travel-story-card {
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 26px;
+  padding: 30px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.travel-story-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.travel-stamp {
+  display: block;
+  min-height: 0;
+  padding: 6px 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--muted);
+  font: 500 11px/1.5 var(--sans);
+  transform: none;
+}
+
+.travel-story-main h2 {
+  font: 600 clamp(24px, 3vw, 31px)/1.45 var(--serif);
+}
+
+.travel-story-main > p,
+.travel-content {
+  font-family: var(--sans);
+  line-height: 1.95;
+}
+
+.travel-content h2::before {
+  content: none;
+}
+
+.travel-content blockquote {
+  padding: 8px 0 8px 24px;
+  border-left: 2px solid var(--green);
+  border-radius: 0;
+  background: transparent;
+}
+
+.travel-content img {
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+/* Cinema */
+
+body.realm-movies {
+  --movie-text: var(--text);
+  --movie-muted: var(--muted);
+  --movie-line: var(--line);
+  --movie-cyan: var(--green);
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.realm-movies::before,
+.movie-category-hero::before,
+.movie-category-hero::after,
+.movie-card-beam,
+.movie-card-index,
+.movie-horizon {
+  display: none;
+}
+
+body.realm-movies .site-header {
+  background: var(--surface-solid);
+  border-bottom-color: var(--line);
+}
+
+body.realm-movies .brand-mark,
+body.realm-movies .nav-icon,
+body.realm-movies .theme-toggle,
+body.realm-movies .menu-toggle {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+.movie-category-hero {
+  min-height: 0;
+  display: block;
+  padding: 68px 0 48px;
+}
+
+.movie-hero-inner {
+  padding-bottom: 0;
+}
+
+.movie-category-hero h1 {
+  background: none;
+  color: var(--text);
+  -webkit-text-fill-color: currentColor;
+  font: 600 clamp(40px, 5vw, 60px)/1.3 var(--serif);
+  letter-spacing: 0;
+  text-shadow: none;
+  transform: none;
+}
+
+.movie-log {
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding-top: 24px;
+}
+
+.movie-card {
+  min-height: 0;
+  padding: 30px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.movie-card:hover {
+  transform: none;
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+.movie-card h2 {
+  max-width: 100%;
+  margin: 16px 0;
+  color: var(--text);
+  font: 600 clamp(24px, 3vw, 31px)/1.45 var(--serif);
+}
+
+.movie-card h2 a:hover {
+  color: var(--green);
+  text-shadow: none;
+}
+
+.movie-card > p,
+.movie-content,
+.movie-content p {
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.95;
+}
+
+.movie-article-hero {
+  min-height: 0;
+  display: block;
+  padding: 68px 0 48px;
+  background: transparent;
+}
+
+.movie-article-head-inner {
+  padding-bottom: 0;
+}
+
+.movie-article-head-inner h1,
+.movie-content h2 {
+  color: var(--text);
+  font-family: var(--serif);
+}
+
+.movie-content h2::before {
+  content: none;
+}
+
+.movie-content h3 {
+  color: var(--text);
+}
+
+.movie-content blockquote {
+  background: transparent;
+  color: var(--muted);
+}
+
+.movie-article-meta span {
+  background: var(--surface);
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .travel-story-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .travel-category-hero,
+  .movie-category-hero {
+    padding: 48px 0 32px;
+  }
+}

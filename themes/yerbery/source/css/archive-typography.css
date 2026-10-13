@@ -1,0 +1,187 @@
+
+/* ===== Yerbery Archive V7 ===== */
+
+.archive-v2 {
+  width: min(calc(100% - 40px), 820px);
+  margin: 0 auto;
+  padding: 76px 0 108px;
+  color: var(--text);
+}
+
+/* Heading */
+
+.archive-heading {
+  margin-bottom: 64px;
+}
+
+.archive-kicker {
+  margin: 0 0 18px;
+  color: var(--green);
+  font: 600 11px/1.5 var(--sans);
+  letter-spacing: .16em;
+}
+
+.archive-heading h1 {
+  margin: 0;
+  font: 600 clamp(44px, 6vw, 62px)/1.2 var(--serif);
+  letter-spacing: -.025em;
+}
+
+.archive-heading h1 span {
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--muted);
+  font: 400 19px/1.5 var(--serif);
+  letter-spacing: 0;
+}
+
+.archive-intro {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font: 400 15px/1.9 var(--sans);
+}
+
+/* Years */
+
+.archive-year-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 54px 0 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--text);
+}
+
+.archive-year-row:first-child {
+  margin-top: 0;
+}
+
+.archive-year-row h2 {
+  margin: 0;
+  color: var(--text);
+  font: 600 35px/1.2 var(--serif);
+}
+
+.archive-year-row span {
+  color: var(--muted);
+  font: 400 11px/1.5 var(--sans);
+  letter-spacing: .12em;
+}
+
+/* Entries */
+
+.archive-entry {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr) 24px;
+  gap: 22px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-entry time {
+  padding-top: 5px;
+  color: var(--muted);
+  font: 400 12px/1.7 var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+
+.archive-entry-main {
+  min-width: 0;
+}
+
+.archive-entry h3 {
+  margin: 0;
+  color: var(--text);
+  font: 500 21px/1.65 var(--serif);
+  letter-spacing: .005em;
+}
+
+.archive-entry h3 a {
+  transition: color .2s ease;
+}
+
+.archive-entry h3 a:hover {
+  color: var(--green);
+}
+
+.archive-entry-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 9px;
+}
+
+.archive-entry-categories a {
+  color: var(--muted);
+  font: 400 12px/1.5 var(--sans);
+}
+
+.archive-entry-categories a:hover {
+  color: var(--green);
+}
+
+.archive-entry-arrow {
+  padding-top: 4px;
+  color: var(--muted);
+  font-size: 19px;
+  transition: color .2s, transform .2s;
+}
+
+.archive-entry-arrow:hover {
+  color: var(--green);
+  transform: translate(3px, -3px);
+}
+
+/* Pagination */
+
+.archive-pagination {
+  margin-top: 48px;
+  text-align: center;
+  color: var(--muted);
+  font: 400 13px var(--sans);
+}
+
+.archive-pagination .page-number,
+.archive-pagination .extend {
+  display: inline-block;
+  margin: 0 7px;
+  padding: 5px 2px;
+}
+
+.archive-pagination .current {
+  color: var(--green);
+  border-bottom: 1px solid var(--green);
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .archive-v2 {
+    width: calc(100% - 32px);
+    padding: 52px 0 74px;
+  }
+
+  .archive-heading {
+    margin-bottom: 42px;
+  }
+
+  .archive-heading h1 {
+    font-size: 42px;
+  }
+
+  .archive-heading h1 span {
+    font-size: 16px;
+  }
+
+  .archive-entry {
+    grid-template-columns: 52px minmax(0, 1fr) 18px;
+    gap: 12px;
+    padding: 21px 0;
+  }
+
+  .archive-entry h3 {
+    font-size: 18px;
+  }
+}

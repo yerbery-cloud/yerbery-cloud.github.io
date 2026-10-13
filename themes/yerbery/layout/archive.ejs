@@ -1,23 +1,82 @@
-<% var posts = page.posts && page.posts.toArray ? page.posts.toArray() : []; %>
-<section class="listing-hero shell narrow">
-  <div class="eyebrow">ARCHIVE</div>
-  <h1>时间留下的痕迹</h1>
-  <p>文章不必密集，只希望每一篇都来自一段真正发生过的学习或生活。</p>
-</section>
 
-<section class="timeline shell narrow">
-  <% var lastYear = null; posts.forEach(function(post) { var y = date(post.date, 'YYYY'); %>
-    <% if (y !== lastYear) { lastYear = y; %>
-      <h2 class="timeline-year"><%= y %></h2>
-    <% } %>
-    <article class="timeline-item">
-      <time><%= date(post.date, 'MM.DD') %></time>
-      <div>
-        <h3><a href="<%= url_for(post.path) %>"><%= post.title %></a></h3>
-        <% if (post.categories && post.categories.length) { %>
-          <div class="timeline-cat"><% post.categories.each(function(cat) { %><a href="<%= url_for(cat.path) %>"><%= cat.name %></a><% }) %></div>
-        <% } %>
-      </div>
-    </article>
-  <% }) %>
+<%
+  var posts = page.posts && page.posts.toArray
+    ? page.posts.toArray()
+    : [];
+
+  posts.sort(function(a, b) {
+    return b.date.valueOf() - a.date.valueOf();
+  });
+
+  var lastYear = null;
+%>
+
+<section class="archive-v2 shell narrow">
+
+  <header class="archive-heading">
+    <p class="archive-kicker">YERBERY / WRITING ARCHIVE</p>
+    <h1>Archive <span>/ 文章归档</span></h1>
+    <p class="archive-intro">
+      所有的旧账<br>
+      入库时都被扫了一遍<br>
+      早くそれらのほこりを拭いてあげよう
+    </p>
+  </header>
+
+  <div class="archive-years">
+    <% posts.forEach(function(post) {
+      var year = date(post.date, 'YYYY');
+    %>
+
+      <% if (year !== lastYear) {
+        lastYear = year;
+      %>
+        <div class="archive-year-row">
+          <h2><%= year %></h2>
+          <span>YEAR / <%= year %></span>
+        </div>
+      <% } %>
+
+      <article class="archive-entry">
+        <time datetime="<%= date(post.date, 'YYYY-MM-DD') %>">
+          <%= date(post.date, 'MM.DD') %>
+        </time>
+
+        <div class="archive-entry-main">
+          <h3>
+            <a href="<%= url_for(post.path) %>">
+              <%= post.title %>
+            </a>
+          </h3>
+
+          <div class="archive-entry-categories">
+            <% if (post.categories && post.categories.length) { %>
+              <% post.categories.each(function(cat) { %>
+                <a href="<%= url_for(cat.path) %>">
+                  <%= cat.name %>
+                </a>
+              <% }) %>
+            <% } %>
+          </div>
+        </div>
+
+        <a class="archive-entry-arrow"
+           href="<%= url_for(post.path) %>"
+           aria-label="阅读 <%= post.title %>">
+          ↗
+        </a>
+      </article>
+
+    <% }) %>
+  </div>
+
+  <% if (page.total > 1) { %>
+    <nav class="archive-pagination" aria-label="归档分页">
+      <%- paginator({
+        prev_text: '上一页',
+        next_text: '下一页'
+      }) %>
+    </nav>
+  <% } %>
+
 </section>

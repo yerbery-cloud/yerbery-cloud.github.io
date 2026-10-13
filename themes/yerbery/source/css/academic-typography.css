@@ -1,0 +1,205 @@
+
+/* ===== Academic Typography V5 ===== */
+
+/* Fonts */
+
+.study-article {
+  --study-serif: var(--serif);
+}
+
+.research-article {
+  --research-serif: var(--serif);
+}
+
+/* Article Titles */
+
+.study-article-header h1,
+.research-article-head h1 {
+  max-width: 800px;
+  font: 600 clamp(34px, 4.5vw, 56px)/1.35 var(--serif);
+  letter-spacing: -.015em;
+}
+
+/* Reading Layout */
+
+.study-article-layout,
+.research-article-layout {
+  grid-template-columns: 180px minmax(0, 740px);
+  gap: 42px;
+}
+
+.study-content,
+.research-content {
+  min-width: 0;
+  max-width: 740px;
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.95;
+  letter-spacing: .005em;
+  overflow-wrap: break-word;
+}
+
+.study-content p,
+.study-content li,
+.study-content td,
+.study-content th,
+.research-content p,
+.research-content li,
+.research-content td,
+.research-content th {
+  font-family: var(--sans);
+}
+
+.study-content p,
+.research-content p {
+  margin: 1.2em 0;
+}
+
+/* Section Headings */
+
+.study-content h2,
+.research-content h2 {
+  margin: 2.4em 0 .8em;
+  font: 600 27px/1.45 var(--serif);
+  letter-spacing: 0;
+}
+
+.study-content h3,
+.research-content h3 {
+  margin: 2em 0 .7em;
+  font: 600 21px/1.5 var(--serif);
+}
+
+/* Quotations */
+
+.study-content blockquote,
+.research-content blockquote {
+  margin: 2em 0;
+  padding: 6px 0 6px 22px;
+  border-radius: 0;
+  background: transparent;
+  font: 400 16px/1.95 var(--serif);
+}
+
+/* Code */
+
+.study-content pre,
+.research-content pre {
+  overflow-x: auto;
+  line-height: 1.65;
+  border-radius: 4px;
+}
+
+/* Table of Contents */
+
+.study-toc a,
+.research-toc a {
+  font-family: var(--sans);
+  line-height: 1.6;
+}
+
+/* Responsive */
+
+@media (max-width: 1020px) {
+  .study-article-layout,
+  .research-article-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .study-toc,
+  .research-toc {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .study-article-header h1,
+  .research-article-head h1 {
+    font-size: 32px;
+  }
+
+  .study-content,
+  .research-content {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .study-content h2,
+  .research-content h2 {
+    font-size: 24px;
+  }
+}
+
+/* ===== Academic Dark Mode V2 ===== */
+
+/* Study */
+
+html[data-theme="dark"] body.realm-study {
+  --study-paper: #121920;
+  --study-paper-2: #1b2530;
+  --study-ink: #e7ebf0;
+  --study-blue: #a7bed6;
+  --study-blue-2: #879bb2;
+  --study-line: rgba(231, 235, 240, .15);
+
+  background: #121920;
+  color: var(--study-ink);
+}
+
+html[data-theme="dark"] body.realm-study .site-header {
+  background: rgba(18, 25, 32, .94);
+  border-bottom-color: var(--study-line);
+}
+
+html[data-theme="dark"] body.realm-study .study-hero-board {
+  background: var(--study-paper-2);
+  border-color: var(--study-line);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.realm-study .study-category-hero,
+html[data-theme="dark"] body.realm-study .study-paper-card {
+  background: transparent;
+}
+
+/* Research */
+
+html[data-theme="dark"] body.realm-research {
+  --research-bg: #111a16;
+  --research-paper: #1b2720;
+  --research-ink: #e8eee8;
+  --research-muted: #a6b5aa;
+  --research-line: rgba(232, 238, 232, .15);
+  --research-accent: #8eaa87;
+  --research-accent-strong: #a1bd9e;
+
+  background: #111a16;
+  color: var(--research-ink);
+}
+
+html[data-theme="dark"] body.realm-research .site-header {
+  background: rgba(17, 26, 22, .94);
+  border-bottom-color: var(--research-line);
+}
+
+html[data-theme="dark"] body.realm-research .research-category-hero {
+  background: transparent;
+  color: var(--research-ink);
+  border-bottom-color: var(--research-line);
+}
+
+html[data-theme="dark"] body.realm-research .research-console {
+  background: var(--research-paper);
+  border-color: var(--research-line);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.realm-research .research-flow {
+  opacity: .85;
+}
+
+html[data-theme="dark"] body.realm-research .research-console-grid {
+  opacity: .25;
+}
