@@ -1195,3 +1195,610 @@ html[data-theme="light"] body::after {
     display: none;
   }
 }
+
+/* ===== Home Cover Upgrade ===== */
+
+.home-cover {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 64px;
+  align-items: start;
+  margin: 30px auto 0;
+}
+
+/* ===== Diamond Mosaic ===== */
+
+.cover-mosaic {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin: 0 auto;
+}
+
+.cover-diamond {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+.cover-diamond img {
+  width: 180%;
+  height: 180%;
+  object-fit: cover;
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  transform: rotate(-45deg);
+}
+
+/* five diamonds */
+.diamond-1 { top: 0; left: 146px; }
+.diamond-2 { top: 98px; left: 36px; }
+.diamond-3 { top: 98px; left: 256px; }
+.diamond-4 { top: 196px; left: 146px; }
+.diamond-5 { top: 196px; left: 366px; }
+
+/* ===== Right Side ===== */
+
+.cover-side {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.motto-panel,
+.education-panel {
+  padding: 26px 28px;
+  background: rgba(255, 255, 255, .72);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.motto-panel-label,
+.education-panel-label {
+  margin: 0 0 8px;
+  color: var(--green);
+  font: 600 11px/1.5 var(--sans);
+  letter-spacing: .16em;
+}
+
+.motto-panel-reading {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font: 400 13px/1.8 var(--serif);
+}
+
+.motto-panel blockquote {
+  margin: 0;
+  color: var(--text);
+  font: 400 clamp(26px, 3vw, 34px)/1.75 var(--serif);
+  letter-spacing: .01em;
+}
+
+.motto-panel-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font: 400 14px/1.95 var(--sans);
+}
+
+.motto-panel-author {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font: italic 14px var(--serif);
+}
+
+/* ===== Education ===== */
+
+.edu-entry {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.edu-entry:first-of-type {
+  margin-top: 6px;
+}
+
+.edu-year {
+  color: var(--green);
+  font: 600 12px/1.8 var(--sans);
+  letter-spacing: .08em;
+}
+
+.edu-body h3 {
+  margin: 0;
+  color: var(--text);
+  font: 600 16px/1.8 var(--serif);
+}
+
+.edu-body p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font: 400 13px/1.8 var(--sans);
+}
+
+/* adjust profile main below cover */
+.profile-main {
+  max-width: 760px;
+  margin: 62px auto 0;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1100px) {
+  .home-cover {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .cover-mosaic {
+    width: 360px;
+    height: 360px;
+  }
+
+  .cover-diamond {
+    width: 110px;
+    height: 110px;
+  }
+
+  .diamond-1 { top: 0; left: 125px; }
+  .diamond-2 { top: 84px; left: 28px; }
+  .diamond-3 { top: 84px; left: 222px; }
+  .diamond-4 { top: 168px; left: 125px; }
+  .diamond-5 { top: 168px; left: 319px; }
+}
+
+@media (max-width: 640px) {
+  .cover-mosaic {
+    width: 280px;
+    height: 300px;
+  }
+
+  .cover-diamond {
+    width: 88px;
+    height: 88px;
+  }
+
+  .diamond-1 { top: 0; left: 96px; }
+  .diamond-2 { top: 68px; left: 16px; }
+  .diamond-3 { top: 68px; left: 176px; }
+  .diamond-4 { top: 136px; left: 96px; }
+  .diamond-5 { top: 136px; left: 256px; }
+
+  .motto-panel,
+  .education-panel {
+    padding: 20px;
+  }
+
+  .motto-panel blockquote {
+    font-size: 22px;
+  }
+
+  .edu-entry {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .edu-year {
+    font-size: 11px;
+  }
+}
+
+/* ===== Home Page V3 Re-layout ===== */
+
+.profile-home {
+  position: relative;
+  padding: 56px 0 80px;
+}
+
+/* ===== top row ===== */
+
+.home-cover {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* ===== diamond mosaic ===== */
+
+.cover-mosaic {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+}
+
+.cover-diamond {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .05);
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+.cover-diamond img {
+  width: 180%;
+  height: 180%;
+  object-fit: cover;
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  transform: rotate(-45deg);
+}
+
+/* 上下左右中 */
+.diamond-top {
+  top: 0;
+  left: 122px;
+}
+
+.diamond-left {
+  top: 122px;
+  left: 0;
+}
+
+.diamond-center {
+  top: 122px;
+  left: 122px;
+}
+
+.diamond-right {
+  top: 122px;
+  left: 244px;
+}
+
+.diamond-bottom {
+  top: 244px;
+  left: 122px;
+}
+
+/* ===== motto ===== */
+
+.motto-panel {
+  padding:34px 90px 34px 42px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(120,120,120,.08);
+  border-bottom: 1px solid rgba(120,120,120,.08);
+  backdrop-filter: blur(8px);
+}
+
+.motto-panel-label {
+  margin: 0 0 8px;
+  color: var(--green);
+  font: 600 11px/1.5 var(--sans);
+  letter-spacing: .16em;
+}
+
+.motto-panel-reading {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font: 400 13px/1.8 var(--serif);
+}
+
+.motto-panel blockquote {
+  margin: 24px 0 28px;
+  color: var(--text);
+  font: 400 clamp(22px, 2.5vw, 30px)/1.8 var(--serif);
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+.motto-panel-note {
+  margin: 0;
+  line-height: 2.2;
+  color: var(--muted);
+  font: 400 14px/1.95 var(--sans);
+}
+
+.motto-panel-author {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font: italic 14px var(--serif);
+}
+
+/* ===== middle row ===== */
+
+.profile-main {
+  max-width: 760px;
+  margin: 72px auto 0;
+  text-align: center;
+}
+
+/* ===== education section ===== */
+
+.education-section {
+  max-width: 920px;
+  margin: 72px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.education-heading {
+  margin-bottom: 22px;
+}
+
+.education-kicker {
+  margin: 0 0 6px;
+  color: var(--green);
+  font: 600 11px/1.5 var(--sans);
+  letter-spacing: .16em;
+}
+
+.education-heading h2 {
+  margin: 0;
+  color: var(--text);
+  font: 600 34px/1.3 var(--serif);
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-entry {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.edu-year {
+  color: var(--green);
+  font: 600 12px/1.8 var(--sans);
+  letter-spacing: .08em;
+}
+
+.edu-body h3 {
+  margin: 0;
+  color: var(--text);
+  font: 600 16px/1.75 var(--serif);
+}
+
+.edu-body p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font: 400 13px/1.85 var(--sans);
+}
+
+/* ===== recent notes spacing ===== */
+
+.recent-notes-shell {
+  padding-top: 72px;
+}
+
+/* ===== responsive ===== */
+
+@media (max-width: 980px) {
+  .home-cover {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .cover-mosaic {
+    width: 320px;
+    height: 320px;
+  }
+
+  .cover-diamond {
+    width: 100px;
+    height: 100px;
+  }
+
+  .diamond-top { top: 0; left: 110px; }
+  .diamond-left { top: 110px; left: 0; }
+  .diamond-center { top: 110px; left: 110px; }
+  .diamond-right { top: 110px; left: 220px; }
+  .diamond-bottom { top: 220px; left: 110px; }
+}
+
+@media (max-width: 640px) {
+  .profile-home {
+    padding: 36px 0 60px;
+  }
+
+  .cover-mosaic {
+    width: 260px;
+    height: 260px;
+  }
+
+  .cover-diamond {
+    width: 82px;
+    height: 82px;
+  }
+
+  .diamond-top { top: 0; left: 89px; }
+  .diamond-left { top: 89px; left: 0; }
+  .diamond-center { top: 89px; left: 89px; }
+  .diamond-right { top: 89px; left: 178px; }
+  .diamond-bottom { top: 178px; left: 89px; }
+
+  .motto-panel {
+    padding: 20px;
+  }
+
+  .motto-panel blockquote {
+    font-size: 20px;
+  }
+
+  .education-heading h2 {
+    font-size: 28px;
+  }
+
+  .edu-entry {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .recent-notes-shell {
+    padding-top: 56px;
+  }
+}
+.profile-focus {
+  margin-top: 28px;
+  color: var(--muted);
+  font-family: var(--sans);
+}
+
+.profile-focus-label {
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: .18em;
+  color: var(--green);
+}
+
+.profile-focus-text {
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+
+/* ===== Currently Section ===== */
+
+.currently-panel {
+    max-width: 760px;
+    margin: 56px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+}
+
+
+.currently-kicker {
+    margin: 0 0 26px;
+
+    color: var(--green);
+
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: .18em;
+}
+
+
+.currently-item {
+    margin-bottom: 26px;
+}
+
+
+.currently-item h3 {
+
+    margin: 0 0 8px;
+
+    color: var(--text);
+
+    font-family: var(--sans);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+}
+
+
+/* ===== Currently Tags ===== */
+
+.interest-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.interest-tags span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 14px;
+
+
+    border: 1px solid var(--line);
+
+    border-radius: 999px;
+
+
+    color: var(--text);
+
+
+    background: transparent;
+
+
+    font-family: var(--sans);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+
+    letter-spacing: .03em;
+
+
+    transition: all .2s ease;
+
+}
+
+
+
+.interest-tags span:hover {
+
+    color: var(--green);
+
+    border-color: var(--green);
+
+}
+
+
+/* mobile */
+
+@media (max-width:640px){
+
+    .currently-panel{
+
+        margin-top:42px;
+
+        padding-top:24px;
+
+    }
+
+
+   .currently-item h3{
+
+      font-size:11px;
+
+  }
+
+
+   .interest-tags span{
+
+      padding:5px 12px;
+
+      font-size:12px;
+
+  }
+
+}

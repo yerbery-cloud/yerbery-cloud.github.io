@@ -15,15 +15,55 @@
 
   <div class="home-editorial-rail" aria-hidden="true">
     <span>YERBERY</span>
-    <b>個人ブログ</b>
+    <b>個人サイト</b>
   </div>
 
-  <div class="profile-art">
-    <p class="profile-art-label">WORDS & FRAGMENTS · 001</p>
-    <blockquote><%= theme.motto %></blockquote>
-    <p class="profile-art-author">— Yerbery</p>
+  <!-- top: cover + motto -->
+  <div class="home-cover">
+
+    <div class="cover-mosaic" aria-label="Cover landscapes">
+      <figure class="cover-diamond diamond-top">
+        <img src="<%- url_for('/images/cover/landscape-1.jpg') %>" alt="Landscape 1">
+      </figure>
+
+      <figure class="cover-diamond diamond-left">
+        <img src="<%- url_for('/images/cover/landscape-2.jpg') %>" alt="Landscape 2">
+      </figure>
+
+      <figure class="cover-diamond diamond-center">
+        <img src="<%- url_for('/images/cover/landscape-3.jpg') %>" alt="Landscape 3">
+      </figure>
+
+      <figure class="cover-diamond diamond-right">
+        <img src="<%- url_for('/images/cover/landscape-4.jpg') %>" alt="Landscape 4">
+      </figure>
+
+      <figure class="cover-diamond diamond-bottom">
+        <img src="<%- url_for('/images/cover/landscape-5.jpg') %>" alt="Landscape 5">
+      </figure>
+    </div>
+
+    <section class="motto-panel">
+      <p class="motto-panel-label">
+        <%= theme.motto_label || 'MOTTO' %>
+      </p>
+      <p class="motto-panel-reading">
+        <%= theme.motto_reading || 'ざゆうめい' %>
+      </p>
+
+      <blockquote><%= theme.motto %></blockquote>
+
+      <p class="motto-panel-note">
+        風立ちぬ、いざ生きめやも。<br>
+        Il faut imaginer Sisyphe heureux.<br>
+        安時而處順，哀樂不能入也。
+      </p>
+
+      <p class="motto-panel-author">— Yerbery / 堀辰雄 / Albert Camus / 庄子·养生主</p>
+    </section>
   </div>
 
+  <!-- middle: avatar + intro -->
   <div class="profile-main">
     <img
       class="profile-avatar"
@@ -41,88 +81,108 @@
     </p>
 
     <p class="profile-description">
-      简单朴素的CSer一枚，
-      偶然建得此小站，
-      遂堆砌一些文学、电影与旅行的旧账。
+      CS一枚，偶然建得此小站，堆砌一些或许可贵的行囊。
     </p>
 
+    <div class="profile-focus">
+      <div class="profile-focus-label">
+        FOCUS
+      </div>
+
+      <div class="profile-focus-text">
+        AI Systems · Efficient AI · SNN
+      </div>
+    </div>
+
     <nav class="profile-links" aria-label="个人链接">
-      <a href="<%= url_for('/categories/research/') %>">
-        Research & Projects ↗
-      </a>
-      <a href="<%= url_for('/archives/') %>">
-        Writing & Notes ↗
-      </a>
-      <a href="<%= theme.github %>" target="_blank" rel="noopener noreferrer">
-        GitHub ↗
-      </a>
+      <a href="<%= url_for('/categories/research/') %>">Research & Projects ↗</a>
+      <a href="<%= url_for('/archives/') %>">Writing & Notes ↗</a>
+      <a href="<%= theme.github %>" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </nav>
+    
   </div>
 
-</section>
+    <!-- Currently -->
+  <section class="currently-panel">
+
+    <p class="currently-kicker">
+      CURRENTLY
+    </p>
 
 
+    <div class="currently-item">
 
-<section class="typography-worlds shell" id="worlds">
+      <h3>RESEARCH INTERESTS</h3>
 
-  <header class="typography-head">
-    <div>
-      <p class="typography-kicker">
-        YERBERY / CONTENT INDEX
-      </p>
-      <h2>Contents <span>/ 目录</span></h2>
+      <div class="interest-tags">
+
+        <span>AI Systems</span>
+
+        <span>Efficient AI</span>
+
+        <span>Brain-inspired Computing</span>
+
+      </div>
+
     </div>
-    <span class="typography-count">01 — 05</span>
-  </header>
 
-  <nav class="typography-list" aria-label="内容分类">
 
-    <a class="typography-item" href="<%= url_for('/categories/research/') %>">
-      <span class="typography-number">01</span>
-      <div class="typography-info">
-        <h3>Research</h3>
-        <p>科研 / Papers · Experiments · Projects</p>
+
+    <div class="currently-item">
+
+      <h3>LEARNING</h3>
+
+      <div class="interest-tags">
+
+        <span>ResearchPulse</span>
+
+        <span>RSS Pipeline</span>
+
+        <span>Machine Learning</span>
+
+        <span>SNN</span>
+
       </div>
-      <span class="typography-arrow">↗</span>
-    </a>
 
-    <a class="typography-item" href="<%= url_for('/categories/study/') %>">
-      <span class="typography-number">02</span>
-      <div class="typography-info">
-        <h3>Learning</h3>
-        <p>学习 / Computer Science · Notes</p>
+    </div>
+
+
+  </section>
+
+  <!-- bottom: education -->
+  <section class="education-section">
+    <header class="education-heading">
+      <p class="education-kicker">EDUCATION / 学习经历</p>
+      <h2>Education</h2>
+    </header>
+
+    <div class="education-list">
+      <div class="edu-entry">
+        <div class="edu-year">2022 — 2025</div>
+        <div class="edu-body">
+          <h3>四川省成都市第七中学</h3>
+          <p>Chengdu No. 7 High School</p>
+        </div>
       </div>
-      <span class="typography-arrow">↗</span>
-    </a>
 
-    <a class="typography-item" href="<%= url_for('/categories/reading/') %>">
-      <span class="typography-number">03</span>
-      <div class="typography-info">
-        <h3>Reading</h3>
-        <p>阅读 / Literature · Essays · Books</p>
+      <div class="edu-entry">
+        <div class="edu-year">2025 — 2026</div>
+        <div class="edu-body">
+          <h3>浙江大学竺可桢学院 · 临床医学八年制 · 本科</h3>
+          <p>Chu Kochen Honors College, Zhejiang University · Clinical Medicine (Eight-Year Program) · Undergraduate</p>
+        </div>
       </div>
-      <span class="typography-arrow">↗</span>
-    </a>
 
-    <a class="typography-item" href="<%= url_for('/categories/movies/') %>">
-      <span class="typography-number">04</span>
-      <div class="typography-info">
-        <h3>Cinema</h3>
-        <p>电影 / Films · Reviews · Memories</p>
+      <div class="edu-entry">
+        <div class="edu-year">2026 — Present</div>
+        <div class="edu-body">
+          <h3>浙江大学计算机科学与技术学院 · 计算机科学与技术 · 本科</h3>
+          <p>College of Computer Science and Technology, Zhejiang University · Computer Science and Technology · Undergraduate</p>
+        </div>
       </div>
-      <span class="typography-arrow">↗</span>
-    </a>
+    </div>
+  </section>
 
-    <a class="typography-item" href="<%= url_for('/categories/travel/') %>">
-      <span class="typography-number">05</span>
-      <div class="typography-info">
-        <h3>Travel</h3>
-        <p>旅行 / Cities · Photography · Journals</p>
-      </div>
-      <span class="typography-arrow">↗</span>
-    </a>
-
-  </nav>
 </section>
 
 

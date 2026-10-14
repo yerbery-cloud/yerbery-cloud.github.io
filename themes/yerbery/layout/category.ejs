@@ -1,10 +1,10 @@
 <%
   var metas = {
-    '学习': { en: 'ACADEMIC NOTEBOOK', desc: '致用为先' },
-    '科研': { en: 'RESEARCH LAB', desc: '从问题出发，用证据推进。' },
+    '学习': { en: 'ACADEMIC NOTEBOOK', desc: '师傅·负试' },
+    '科研': { en: 'RESEARCH LAB', desc: '科基的研论' },
     '阅读': { en: 'READING ROOM', desc: '聊以自慰' },
-    '电影': { en: 'CINEMA LOG', desc: '银幕熄灭之后' },
-    '旅行': { en: 'TRAVEL JOURNAL', desc: '足下生魂' }
+    '电影': { en: 'CINEMA LOG', desc: '试观众生' },
+    '旅行': { en: 'TRAVEL JOURNAL', desc: '试览万象' }
   };
   var meta = metas[page.category] || { en: 'CATEGORY', desc: '这一类文章的集合。' };
   var posts = page.posts && page.posts.toArray ? page.posts.toArray() : [];
