@@ -26,7 +26,7 @@ mathjax: true
 1. 从本地 LLM 推理到性能评估(已完成)
 > 推理流程、精度、量化概念、性能指标、实验设计。
 
-2. Transformer 推理机制与 KV Cache
+2. Transformer 推理机制与 KV Cache(已完成)
 > 深入 Attention、Prefill、Decode、KV Cache 与生成过程。
 
 3. 模型量化原理与 INT8 / INT4 实践
