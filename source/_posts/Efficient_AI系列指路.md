@@ -29,7 +29,7 @@ mathjax: true
 2. Transformer 推理机制与 KV Cache(已完成)
 > 深入 Attention、Prefill、Decode、KV Cache 与生成过程。
 
-3. 模型量化原理与 INT8 / INT4 实践
+3. 模型量化原理与 INT8 / INT4 实践(已完成)
 > 量化误差、PTQ、CPU 兼容的量化工具链、质量与性能比较。
 
 4. 模型推理性能分析与 Profiling
