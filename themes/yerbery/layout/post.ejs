@@ -7,7 +7,8 @@
               catNames.indexOf('科研') !== -1 ? 'research' :
               catNames.indexOf('阅读') !== -1 ? 'reading' :
               catNames.indexOf('电影') !== -1 ? 'movies' :
-              catNames.indexOf('旅行') !== -1 ? 'travel' : 'default';
+              catNames.indexOf('旅行') !== -1 ? 'travel' :
+              catNames.indexOf('杂记') !== -1 ? 'misc' : 'default';
   var readingTypes = theme.reading_types || {
     mystery: '悬疑', fiction: '文学·小说', essay: '文学·散文&随笔', travelogue: '游阅', other: '其他'
   };
@@ -16,6 +17,14 @@
   };
   var researchType = page.research_type && researchTypes[page.research_type] ? page.research_type : 'idea';
   var readingType = page.reading_type && readingTypes[page.reading_type] ? page.reading_type : 'other';
+  var miscTypes = theme.misc_types || {
+    thought: '片语',
+    essay: '随笔',
+    recommendation: '荐读'
+  };
+
+  var miscType = page.misc_type && miscTypes[page.misc_type]
+    ? page.misc_type : 'thought';
   var route = Array.isArray(page.route) ? page.route : [];
   var readMinutes = page.content ? Math.max(1, Math.ceil(String(page.content).replace(/<[^>]*>/g, '').length / 500)) : 1;
 %>
@@ -189,7 +198,70 @@
     <% } %>
   </article>
 
+
+<% } else if (realm === 'misc') { %>
+
+  <article class="misc-article shell">
+
+    <header class="misc-article-head">
+
+      <div class="misc-entry-type">
+        YERBERY / MISCELLANY /
+        <%= miscTypes[miscType] %>
+      </div>
+
+      <h1><%= page.title %></h1>
+
+      <div class="misc-entry-meta">
+        <time datetime="<%= date(page.date, 'YYYY-MM-DD') %>">
+          <%= date(page.date, 'YYYY.MM.DD') %>
+        </time>
+        ·
+        <%= readMinutes %> MIN READ
+      </div>
+
+      <% if (miscType === 'recommendation' &&
+             (page.source_author || page.source_name)) { %>
+
+        <div class="misc-entry-source">
+          <%= [page.source_author, page.source_name]
+                .filter(Boolean).join(' · ') %>
+        </div>
+
+      <% } %>
+
+    </header>
+
+    <div class="misc-reading-paper">
+
+      <div class="article-content misc-prose"
+           id="article-content">
+        <%- page.content %>
+      </div>
+
+      <% if (miscType === 'recommendation' &&
+             /^https?:\/\//i.test(String(page.source_url || ''))) { %>
+
+        <a class="misc-original-link"
+           href="<%= page.source_url %>"
+           target="_blank"
+           rel="noopener noreferrer">
+          阅读原文 ↗
+        </a>
+
+      <% } %>
+
+    </div>
+
+    <a class="misc-back"
+       href="<%= url_for('/categories/misc/') %>">
+      ← 返回杂记
+    </a>
+
+  </article>
+
 <% } else { %>
+
   <article class="article-shell">
     <header class="article-header">
       <div class="article-kicker">

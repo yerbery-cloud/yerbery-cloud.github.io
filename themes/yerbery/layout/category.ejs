@@ -4,7 +4,8 @@
     '科研': { en: 'RESEARCH LAB', desc: '科基的研论' },
     '阅读': { en: 'READING ROOM', desc: '聊以自慰' },
     '电影': { en: 'CINEMA LOG', desc: '试观众生' },
-    '旅行': { en: 'TRAVEL JOURNAL', desc: '试览万象' }
+    '旅行': { en: 'TRAVEL JOURNAL', desc: '试览万象' },
+    '杂记': { en: 'MISCELLANY', desc: '风言丰语' }
   };
   var meta = metas[page.category] || { en: 'CATEGORY', desc: '这一类文章的集合。' };
   var posts = page.posts && page.posts.toArray ? page.posts.toArray() : [];
@@ -19,9 +20,151 @@
   var researchTypes = theme.research_types || {
     paper: '论文精读', experiment: '实验记录', benchmark: 'Benchmark', idea: '想法与设计', weekly: '周报 / 进展'
   };
+  var miscTypes = theme.misc_types || {
+    thought: '片语',
+    essay: '随笔',
+    recommendation: '荐读'
+  };
 %>
 
-<% if (page.category === '学习') { %>
+
+<% if (page.category === '杂记') { %>
+
+  <section class="misc-hero shell">
+    <div class="misc-kicker">
+      YERBERY / MISCELLANY
+    </div>
+
+    <h1>杂记<span> · </span></h1>
+    <p class="misc-subtitle">
+      Notes on Ordinary Days
+    </p>
+    <p class="misc-intro"><%= meta.desc %></p>
+  </section>
+
+  <nav class="misc-filter shell" id="misc-filter"
+      aria-label="杂记类型筛选">
+
+    <button type="button"
+            data-misc-filter="all"
+            aria-pressed="true">全部</button>
+
+    <button type="button"
+            data-misc-filter="thought"
+            aria-pressed="false">片语</button>
+
+    <button type="button"
+            data-misc-filter="essay"
+            aria-pressed="false">随笔</button>
+
+    <button type="button"
+            data-misc-filter="recommendation"
+            aria-pressed="false">荐读</button>
+
+  </nav>
+
+  <section class="misc-board shell">
+
+    <% posts.forEach(function(post, i) {
+      var type = miscTypes[post.misc_type]
+        ? post.misc_type : 'thought';
+      var summaryLength = type === 'thought' ? 500 : 170;
+    %>
+
+      <article class="misc-note misc-note--<%= type %>"
+         data-misc-type="<%= type %>">
+
+        <div class="misc-note-meta">
+          <time><%= date(post.date, 'YYYY.MM.DD') %></time>
+          <span><%= miscTypes[type] %></span>
+        </div>
+
+        <h2>
+          <a href="<%= url_for(post.path) %>">
+            <%= post.title %>
+          </a>
+        </h2>
+
+        <% if (type === 'recommendation') { %>
+          <div class="misc-note-source">
+            <%= [post.source_author, post.source_name]
+                  .filter(Boolean).join(' · ') %>
+          </div>
+        <% } %>
+
+        
+        <% if (type === 'thought') { %>
+          <div class="misc-note-excerpt misc-note-full">
+            <%- post.content %>
+          </div>
+        <% } else { %>
+          <p class="misc-note-excerpt">
+            <%= postSummary(post, 170) %>
+          </p>
+        <% } %>
+
+
+        
+        <div class="misc-note-foot">
+          <span>
+            No. <%= String(i + 1).padStart(2, '0') %>
+          </span>
+
+          <div class="misc-note-actions">
+            <a href="<%= url_for(post.path) %>">
+              <%= type === 'recommendation'
+                  ? '我的推荐 ↗' : '翻开这页 ↗' %>
+            </a>
+
+            <% if (type === 'recommendation' &&
+                  /^https?:\/\//i.test(String(post.source_url || ''))) { %>
+              <a href="<%= post.source_url %>"
+                target="_blank"
+                rel="noopener noreferrer">
+                阅读原文 ↗
+              </a>
+            <% } %>
+          </div>
+        </div>
+
+
+      </article>
+
+    <% }) %>
+
+  </section>
+
+
+  <% if (page.total > 1) { %>
+    <nav class="misc-pagination shell"
+        aria-label="杂记分页">
+
+      <% if (page.prev_link) { %>
+        <a href="<%= url_for(page.prev_link) %>">
+          ← 较新的记录
+        </a>
+      <% } else { %>
+        <span></span>
+      <% } %>
+
+      <span class="misc-page-count">
+        <%= page.current %> / <%= page.total %>
+        · 筛选本页
+      </span>
+
+      <% if (page.next_link) { %>
+        <a href="<%= url_for(page.next_link) %>">
+          更早的记录 →
+        </a>
+      <% } else { %>
+        <span></span>
+      <% } %>
+
+    </nav>
+  <% } %>
+
+<% } else if (page.category === '学习') { %>
+
   <section class="study-category-hero">
     <div class="shell study-category-grid">
       <div>
@@ -263,3 +406,4 @@
     <% }) %>
   </section>
 <% } %>
+

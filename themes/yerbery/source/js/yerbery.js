@@ -109,4 +109,38 @@
       });
     }
   }
+
+
+  // Miscellany: filter notes by type.
+  var miscFilter = document.getElementById('misc-filter');
+
+  if (miscFilter) {
+    var miscNotes = Array.prototype.slice.call(
+      document.querySelectorAll('[data-misc-type]')
+    );
+
+    miscFilter.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-misc-filter]');
+
+      if (!button || !miscFilter.contains(button)) return;
+
+      var type = button.getAttribute('data-misc-filter');
+
+      miscFilter.querySelectorAll('[data-misc-filter]')
+        .forEach(function (item) {
+          item.setAttribute(
+            'aria-pressed',
+            item === button ? 'true' : 'false'
+          );
+        });
+
+      miscNotes.forEach(function (note) {
+        var match = type === 'all' ||
+          note.getAttribute('data-misc-type') === type;
+
+        note.hidden = !match;
+      });
+    });
+  }
+
 })();

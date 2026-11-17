@@ -10,7 +10,14 @@
 
   function resolveRealm() {
     var names = categoryNames();
-    var map = { '学习': 'study', '科研': 'research', '阅读': 'reading', '电影': 'movies', '旅行': 'travel' };
+    var map = {
+    '学习': 'study',
+    '科研': 'research',
+    '阅读': 'reading',
+    '电影': 'movies',
+    '旅行': 'travel',
+    '杂记': 'misc'
+  };
     for (var i = 0; i < names.length; i++) {
       if (map[names[i]]) return map[names[i]];
     }
@@ -41,6 +48,7 @@
   <% if (realm === 'reading') { %><%- css('css/reading.css') %><% } %>
   <% if (realm === 'movies') { %><%- css('css/movies.css') %><% } %>
   <% if (realm === 'travel') { %><%- css('css/travel.css') %><% } %>
+  <% if (realm === 'misc') { %><%- css('css/misc.css') %><% } %>
   
   <% if (realm === 'study' || realm === 'research') { %>
     <%- css('css/academic-typography.css') %>

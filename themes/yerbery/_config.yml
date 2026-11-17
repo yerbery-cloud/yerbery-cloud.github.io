@@ -13,6 +13,7 @@ menu:
   阅读: /categories/reading/
   电影: /categories/movies/
   旅行: /categories/travel/
+  杂记: /categories/misc/
   归档: /archives/
 
 # 阅读板块的五种视觉子类型。
@@ -32,6 +33,12 @@ research_types:
   benchmark: Benchmark
   idea: 想法与设计
   weekly: 周报 / 进展
+
+# 杂记的三种类型
+misc_types:
+  thought: 片语
+  essay: 随笔
+  recommendation: 荐读
 
 github: https://github.com/yerbery-cloud
 footer_text: Stay curious. Stay gentle.
